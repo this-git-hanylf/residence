@@ -1,6 +1,8 @@
 import React from 'react'
 import { Text, TouchableOpacity, View, Image, Dimensions, FlatList } from 'react-native'
-import Style from '../../Theme/Style';
+// import Style from '../../Theme/Style';
+import { Style, Colors } from "../../Theme/";
+// import Style from '@Theme/Style';
 // import ProgressCircle from 'react-native-progress-circle'
 const vw = Dimensions.get('window').width;
 const vh = Dimensions.get('window').height;
@@ -15,13 +17,18 @@ export default class NewsList extends React.Component {
                 onPress={onPress}
                 style={{
                     // flexDirection: "row",
+                    // backgroundColor: Colors.backgrey,
                     backgroundColor: bg,
-                    padding: 10,
-                    marginHorizontal: 10,
+                    // padding: 10,
+                    // marginHorizontal: 5,
                     borderRadius: 20,
                     alignItems: "center",
-                    marginTop: 10,
-                    width: vw / numColumns,
+                    justifyContent: 'center',
+                    // marginTop: 5,
+                    margin: 5,
+                    // width: vw / numColumns,
+                    height: vw / numColumns,
+                    // height: vh / numColumns,
 
                     // flexWrap: "wrap",
                     flex: 1
@@ -29,28 +36,33 @@ export default class NewsList extends React.Component {
             >
                 <Image
                     source={img}
-                    style={{ width: '100%', height: 100, resizeMode: 'cover' }}
+                    style={{ resizeMode: 'cover', flex: 1, width: 200, height: 300, borderTopLeftRadius: 20, borderTopRightRadius: 20, }}
                 />
+                <Text style={{
+                    color: colorTextTitle,
+                    fontFamily: "Bold",
+                    fontWeight: 'bold',
+                    fontSize: 16,
+                    // paddingHorizontal: 10,
+                    textAlign: 'left',
+                    width: 170,
+                    paddingTop: 5,
 
-                <View>
-                    <Text style={{
-                        color: colorTextTitle,
-                        fontFamily: "Bold",
-                        fontWeight: 'bold',
-                        fontSize: 16,
-                        paddingHorizontal: 10,
-                        width: 170
+                    // flex: 
 
-                    }}>{title}</Text>
-                    <Text ellipsizeMode='tail' numberOfLines={3} style={{
-                        color: colorTextDesc,
-                        fontFamily: "Medium",
-                        fontSize: 12,
-                        paddingHorizontal: 10
-                    }}>
-                        {desc}
-                    </Text>
-                </View>
+                }}>{title}</Text>
+                <Text ellipsizeMode='tail' numberOfLines={2} style={{
+                    color: colorTextDesc,
+                    fontFamily: "Medium",
+                    fontSize: 12,
+                    paddingHorizontal: 15,
+                    // width: 170,
+                    // paddingBottom: 20
+                    marginBottom: 10
+                }}>
+                    {desc}
+                </Text>
+
 
                 {/* <ProgressCircle
                     percent={30}
@@ -66,6 +78,11 @@ export default class NewsList extends React.Component {
                 </ProgressCircle> */}
 
             </TouchableOpacity>
+
+
+
+
+
         )
     }
 }

@@ -4,11 +4,17 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler'
 import CourseList from '../CourseList/CourseList'
 import { Navigation } from "react-native-navigation";
 import { Modalize } from 'react-native-modalize';
-import Style from '../../Theme/Style';
+// import Style from '../../Theme/Style';
+import { Style, Colors } from "../../Theme/";
 import NewsList from '../News/NewsList';
+import NewsListImage from '../News/NewListImage';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+
 const data = [
-    { id: 'a', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', img: '@Asset/images/new/news/Shelton.jpg' },
-    { id: 'b', value: 'B', img: '@Asset/images/new/news/Shelton.jpg' },
+    { id: 'ini judul untuk news', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', img: '@Asset/images/new/news/Shelton.jpg' },
+    { id: 'ini judul untuk news', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', img: '@Asset/images/new/news/Shelton.jpg' },
     { id: 'c', value: 'C', img: '@Asset/images/new/news/Shelton.jpg' },
     { id: 'd', value: 'D', img: '@Asset/images/new/news/Shelton.jpg' },
     { id: 'e', value: 'E', img: '@Asset/images/new/news/Shelton.jpg' },
@@ -66,21 +72,12 @@ export default class Home extends React.Component {
             noOfPic: 2,
             // imgMap: imgMap,
             imgMap: [
-                require('@Asset/images/xd.png'),
-                require('@Asset/images/ae.png'),
-                require('@Asset/images/sketch.png'),
-                // 'xd.png',
-                // 'ae.png',
-                // 'sketch.png',
+                require('@Asset/images/Home.png'),
+                require('@Asset/images/kincir_background.png'),
+                require('@Asset/images/relax_background.png'),
+
             ],
-            // randomImg: ''
-            // 0: "xd.png",
-            // 1: "ae.png",
-            // 2: "sketch.png",
-            // 3: "ae.png",
-            // 4: "xd.png"
-            // @Asset/images/xd.png
-            // };
+
 
         };
         this.setState(() => {
@@ -174,8 +171,11 @@ export default class Home extends React.Component {
                 // source={this.state.randomImg}
                 // source={this.getRandomPic()}
                 source={this.state.imgMap[this.state.randomImg]}
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%", height: "100%", backgroundColor: '#fff' }}
             >
+                {/* <Image source={require('@Asset/images/Home.png')}>
+
+                </Image> */}
                 <SafeAreaView>
                     <View style={{ flexDirection: 'row', width: '100%', alignContent: 'center', alignItems: 'center' }}>
 
@@ -214,7 +214,7 @@ export default class Home extends React.Component {
                         marginBottom: 20,
                         fontFamily: "Bold",
                         // alignItems: "flex-start",
-                        color: "#FFF"
+                        color: "#000"
                     }}>
                         Welcome back Mikolaj
                     </Text>
@@ -250,104 +250,172 @@ export default class Home extends React.Component {
                         />
                     </View> */}
 
+                    {/* ------- CARD INVOICE ------- */}
                     <View style={{
                         flexDirection: "row",
-                        backgroundColor: "#FFF2F2",
-                        marginTop: 35,
+                        backgroundColor: "#fff",
+                        marginTop: 20,
+                        // paddingBottom: 5,
                         marginHorizontal: 20,
                         borderRadius: 20,
-                        paddingVertical: 30,
+                        paddingVertical: 5,
                         paddingLeft: 30,
                         // width: '100%'
                     }}>
 
+                        <View style={{ width: '50%' }}>
 
-                        <View>
                             <Text style={{
-                                color: "#345c74",
-                                fontSize: 20,
+                                color: "#000",
+                                fontSize: 16,
                                 fontFamily: "Bold",
                                 // width: 250,
+
                                 paddingRight: 50
                             }}>
-                                Invoice
+                                <Icon name="receipt-outline" style={{ fontSize: 18 }}></Icon> Invoice
+                           </Text>
+
+                            <TouchableOpacity
+                                // // onPress={() => this.props.navigation.navigate('Cources')}
+                                // onPress={() => this.handleNavigation(
+                                //     "screen.Cources",
+                                //     // this.state.totalInvoiceDue
+                                // )}
+                                style={{
+                                    flexDirection: "row",
+                                    backgroundColor: "#F0E2D0",
+                                    alignItems: "center",
+                                    marginTop: 5,
+                                    width: 140,
+                                    paddingVertical: 10,
+                                    borderRadius: 14,
+                                    paddingHorizontal: 10,
+                                    marginBottom: 10,
+
+                                }}
+                            >
+                                <Text style={{
+                                    color: "#000",
+
+                                    fontWeight: 'bold',
+                                    fontSize: 14,
+                                    textAlign: 'left',
+
+
+
+
+                                }}>IDR </Text>
+                                <Text style={{
+                                    color: "#000",
+
+                                    fontWeight: 'bold',
+                                    fontSize: 14,
+                                    textAlign: 'right',
+                                    width: '70%'
+
+
+
+                                }}>500,000.00 </Text>
+
+
+                                {/* <Image
+                                    source={require('@Asset/images/a3.png')}
+                                    style={{ marginLeft: 20, width: 8, height: 8 }}
+                                /> */}
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ width: '50%' }}>
+
+                            <Text style={{
+                                color: "#000",
+                                fontSize: 16,
+                                fontFamily: "Bold",
+
+                                paddingRight: 35,
+
+                                textAlign: 'center'
+                            }}>
+                                Total
                            </Text>
 
                             <TouchableOpacity
                                 // onPress={() => this.props.navigation.navigate('Cources')}
-                                onPress={() => this.handleNavigation(
-                                    "screen.Cources",
-                                    // this.state.totalInvoiceDue
-                                )}
+                                // onPress={() => this.handleNavigation(
+                                //     "screen.Cources",
+                                //     // this.state.totalInvoiceDue
+                                // )}
                                 style={{
                                     flexDirection: "row",
-                                    backgroundColor: "#f58084",
+                                    backgroundColor: "#F0E2D0",
                                     alignItems: "center",
-                                    marginTop: 20,
-                                    width: 150,
+                                    marginTop: 5,
+                                    width: 140,
                                     paddingVertical: 10,
                                     borderRadius: 14,
-                                    paddingHorizontal: 10
+
+                                    marginBottom: 10,
+
+
                                 }}
                             >
                                 <Text style={{
-                                    color: "#FFF",
-                                    fontFamily: "Bold",
-                                    fontSize: 12
-                                }}>Categories</Text>
-                                <Image
-                                    source={require('@Asset/images/a3.png')}
-                                    style={{ marginLeft: 20, width: 8, height: 8 }}
-                                />
+                                    color: "#000",
+
+                                    fontWeight: 'bold',
+                                    fontSize: 14,
+
+                                    textAlign: 'center',
+                                    width: '100%'
+
+
+
+                                }}>20 </Text>
+
                             </TouchableOpacity>
                         </View>
-                        <View>
-                            <Text style={{
-                                color: "#345c74",
-                                fontSize: 20,
-                                fontFamily: "Bold",
-                                // width: 250,
-                                paddingRight: 100
-                            }}>
-                                Total
-                           </Text>
-                            <Text style={{
-                                color: "#000",
-                                fontFamily: "Bold",
-                                fontSize: 12
-                            }}>Categories</Text>
-                        </View>
-                        {/* <Image
-                            source={require('@Asset/images/undraw.png')}
-                            style={{ marginLeft: -80, marginTop: 35 }}
-                        /> */}
-
                     </View>
+                    {/* ------- END CARD INVOICE ------- */}
+
+                    {/* -------- NEWS N PROMOTION -------- */}
                     <Text style={{
-                        color: "#345c74",
+                        color: "#000",
                         fontFamily: "Bold",
-                        fontSize: 20,
+                        fontSize: 16,
                         paddingHorizontal: 20,
-                        marginTop: 20,
+                        marginTop: 30,
                         marginBottom: 10
-                    }}>Courses in progress</Text>
+                    }}>News and Promotions</Text>
 
                     <FlatList data={data}
                         renderItem={({ item }) => (
+                            // <View>
+
                             <NewsList
                                 desc={item.value}
-                                bg="#fdddf3"
+                                bg={Colors.bg_peach}
+                                // bg={Style.hijaumuda}
                                 // img={{ uri: item.img }}
                                 img={require('@Asset/images/new/news/Shelton.jpg')}
+
                                 title={item.id}
                                 numColumns={2}
                                 colorTextTitle={"#000"}
                                 colorTextDesc={"#000"}
-                            />
+                            >
+                                {/* <NewsListImage style={{ flex: 1 }} img={require('@Asset/images/screenshot.png')}>
+
+                                </NewsListImage> */}
+                            </NewsList>
+                            // </View>
+
                         )}
+                        style={{ flex: 1, marginVertical: 20 }}
                         keyExtractor={item => item.id}
                         numColumns={2}
                     />
+                    {/* -------- END NEWS N PROMOTION -------- */}
+
 
                     <Text style={{
                         color: "#345c74",
@@ -445,10 +513,10 @@ export default class Home extends React.Component {
 
                                 <View style={{ flexDirection: 'column', textAlign: 'center' }}>
                                     <Image
-                                        source={require('@Asset/images/new/menu/helpdesk2.png')}
-                                        style={{ width: 70, height: 70, marginLeft: 10, marginRight: 10, marginTop: 10 }}
+                                        source={require('@Asset/images/new/menu/billing.png')}
+                                        style={{ width: 40, height: 40, marginLeft: 10, marginRight: 10, marginTop: 10 }}
                                     />
-                                    <Text style={[Style.textBlack, { textAlign: 'center' }]}>Helpdesk</Text>
+                                    <Text style={[Style.textBlack, { textAlign: 'center' }]}>Billing</Text>
                                 </View>
                                 <View>
                                     <Image

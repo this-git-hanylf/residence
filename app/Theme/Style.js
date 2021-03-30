@@ -1,5 +1,6 @@
 const React = require("react-native");
 const { Platform, StatusBar } = React;
+
 export default {
     // *** row *** //
     layout: {
@@ -458,5 +459,7 @@ export default {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center"
-    }
+    },
+
+
 };
