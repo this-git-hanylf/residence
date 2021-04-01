@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, ImageBackground, TouchableOpacity, Image, Animated, SafeAreaView, SectionList, FlatList, ScrollViewComponent } from 'react-native'
+import { View, Text, ImageBackground, TouchableOpacity, Image, Animated, SafeAreaView, SectionList, FlatList, ScrollViewComponent, Platform, StatusBar } from 'react-native'
 import { ScrollView, TextInput } from 'react-native-gesture-handler'
 import CourseList from '../CourseList/CourseList'
 import { Navigation } from "react-native-navigation";
@@ -10,6 +10,8 @@ import NewsList from '../News/NewsList';
 import NewsListImage from '../News/NewListImage';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { sessions } from '../../_helpers/';
+import OfflineNotice from "@Component/OfflineNotice";
 
 
 const data = [
@@ -75,10 +77,7 @@ export default class Home extends React.Component {
                 require('@Asset/images/Home.png'),
                 require('@Asset/images/kincir_background.png'),
                 require('@Asset/images/relax_background.png'),
-
             ],
-
-
         };
         this.setState(() => {
             // this.getRandomPic();
@@ -86,6 +85,33 @@ export default class Home extends React.Component {
 
         Navigation.events().bindComponent(this);
         // this.getRandomPic = this.getRandomPic.bind(this);
+    }
+
+    async componentWillMount() {
+        this.startHeaderHeight = 150;
+        if (Platform.OS == "android") {
+            this.startHeaderHeight = 100 + StatusBar.currentHeight;
+        }
+
+
+        const data = {
+            email: await sessions.getSess("@User"),
+            user: await sessions.getSess("@isLogin"),
+            // user: 'hany',
+            // name: await sessions.getSess("@Name"),
+            // token: await sessions.getSess("@Token"),
+            // userId: await sessions.getSess("@UserId"),
+            // dataTower: await sessions.getSess("@UserProject"),
+
+
+            mounted: true
+
+        }
+        console.log('data', data);
+
+        this.setState(data, () => {
+
+        })
     }
 
     handleNavigation = (screenName, passedProps) => {
@@ -164,6 +190,7 @@ export default class Home extends React.Component {
     render() {
         // console.log(this.getRandomPic())
         console.log('randompict', this.state.imgMap[this.state.randomImg]);
+        const { user } = this.state;
         // let imgcoba = 
         return (
             <ImageBackground
@@ -173,6 +200,7 @@ export default class Home extends React.Component {
                 source={this.state.imgMap[this.state.randomImg]}
                 style={{ width: "100%", height: "100%", backgroundColor: '#fff' }}
             >
+                <OfflineNotice />
                 {/* <Image source={require('@Asset/images/Home.png')}>
 
                 </Image> */}
@@ -180,18 +208,12 @@ export default class Home extends React.Component {
                     <View style={{ flexDirection: 'row', width: '100%', alignContent: 'center', alignItems: 'center' }}>
 
                         <View style={{
-                            // width: "100%",
+
                             alignItems: "flex-end",
 
                             paddingHorizontal: 20
                         }}>
-                            {/* <View style={{
-                                paddingHorizontal: 10,
-                                paddingVertical: 12,
-                                borderRadius: 10,
-                                marginTop: 30,
-                                // backgroundColor: "#d1a0a7"
-                            }}> */}
+
                             <Image
                                 source={require('@Asset/images/ae.png')}
                                 style={{
@@ -216,7 +238,15 @@ export default class Home extends React.Component {
                         // alignItems: "flex-start",
                         color: "#000"
                     }}>
-                        Welcome back Mikolaj
+                        Welcome back {this.state.user != null ? this.state.user : <Text style={{
+                            paddingHorizontal: 15,
+                            fontSize: 20,
+                            paddingTop: 20,
+                            marginBottom: 20,
+                            fontFamily: "Bold",
+                            // alignItems: "flex-start",
+                            color: "#000"
+                        }}>Friends</Text>}
                     </Text>
                 </SafeAreaView>
                 <ScrollView>
@@ -251,130 +281,135 @@ export default class Home extends React.Component {
                     </View> */}
 
                     {/* ------- CARD INVOICE ------- */}
-                    <View style={{
-                        flexDirection: "row",
-                        backgroundColor: "#fff",
-                        marginTop: 20,
-                        // paddingBottom: 5,
-                        marginHorizontal: 20,
-                        borderRadius: 20,
-                        paddingVertical: 5,
-                        paddingLeft: 30,
-                        // width: '100%'
-                    }}>
+                    {user != null ?
+                        <View style={{
+                            flexDirection: "row",
+                            backgroundColor: "#fff",
+                            marginTop: 20,
+                            // paddingBottom: 5,
+                            marginHorizontal: 20,
+                            borderRadius: 20,
+                            paddingVertical: 5,
+                            paddingLeft: 30,
+                            // width: '100%'
+                        }}>
 
-                        <View style={{ width: '50%' }}>
+                            <View style={{ width: '50%' }}>
 
-                            <Text style={{
-                                color: "#000",
-                                fontSize: 16,
-                                fontFamily: "Bold",
-                                // width: 250,
+                                <Text style={{
+                                    color: "#000",
+                                    fontSize: 16,
+                                    fontFamily: "Bold",
+                                    // width: 250,
 
-                                paddingRight: 50
-                            }}>
-                                <Icon name="receipt-outline" style={{ fontSize: 18 }}></Icon> Invoice
+                                    paddingRight: 50
+                                }}>
+                                    <Icon name="receipt-outline" style={{ fontSize: 18 }}></Icon> Invoice
                            </Text>
 
-                            <TouchableOpacity
-                                // // onPress={() => this.props.navigation.navigate('Cources')}
-                                // onPress={() => this.handleNavigation(
-                                //     "screen.Cources",
-                                //     // this.state.totalInvoiceDue
-                                // )}
-                                style={{
-                                    flexDirection: "row",
-                                    backgroundColor: "#F0E2D0",
-                                    alignItems: "center",
-                                    marginTop: 5,
-                                    width: 140,
-                                    paddingVertical: 10,
-                                    borderRadius: 14,
-                                    paddingHorizontal: 10,
-                                    marginBottom: 10,
+                                <TouchableOpacity
+                                    // // onPress={() => this.props.navigation.navigate('Cources')}
+                                    // onPress={() => this.handleNavigation(
+                                    //     "screen.Cources",
+                                    //     // this.state.totalInvoiceDue
+                                    // )}
+                                    style={{
+                                        flexDirection: "row",
+                                        backgroundColor: "#F0E2D0",
+                                        alignItems: "center",
+                                        marginTop: 5,
+                                        width: 140,
+                                        paddingVertical: 10,
+                                        borderRadius: 14,
+                                        paddingHorizontal: 10,
+                                        marginBottom: 10,
 
-                                }}
-                            >
-                                <Text style={{
-                                    color: "#000",
+                                    }}
+                                >
+                                    <Text style={{
+                                        color: "#000",
 
-                                    fontWeight: 'bold',
-                                    fontSize: 14,
-                                    textAlign: 'left',
-
-
-
-
-                                }}>IDR </Text>
-                                <Text style={{
-                                    color: "#000",
-
-                                    fontWeight: 'bold',
-                                    fontSize: 14,
-                                    textAlign: 'right',
-                                    width: '70%'
+                                        fontWeight: 'bold',
+                                        fontSize: 14,
+                                        textAlign: 'left',
 
 
 
-                                }}>500,000.00 </Text>
+
+                                    }}>IDR </Text>
+                                    <Text style={{
+                                        color: "#000",
+
+                                        fontWeight: 'bold',
+                                        fontSize: 14,
+                                        textAlign: 'right',
+                                        width: '70%'
 
 
-                                {/* <Image
+
+                                    }}>500,000.00 </Text>
+
+
+                                    {/* <Image
                                     source={require('@Asset/images/a3.png')}
                                     style={{ marginLeft: 20, width: 8, height: 8 }}
                                 /> */}
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{ width: '50%' }}>
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{ width: '50%' }}>
 
-                            <Text style={{
-                                color: "#000",
-                                fontSize: 16,
-                                fontFamily: "Bold",
-
-                                paddingRight: 35,
-
-                                textAlign: 'center'
-                            }}>
-                                Total
-                           </Text>
-
-                            <TouchableOpacity
-                                // onPress={() => this.props.navigation.navigate('Cources')}
-                                // onPress={() => this.handleNavigation(
-                                //     "screen.Cources",
-                                //     // this.state.totalInvoiceDue
-                                // )}
-                                style={{
-                                    flexDirection: "row",
-                                    backgroundColor: "#F0E2D0",
-                                    alignItems: "center",
-                                    marginTop: 5,
-                                    width: 140,
-                                    paddingVertical: 10,
-                                    borderRadius: 14,
-
-                                    marginBottom: 10,
-
-
-                                }}
-                            >
                                 <Text style={{
                                     color: "#000",
+                                    fontSize: 16,
+                                    fontFamily: "Bold",
 
-                                    fontWeight: 'bold',
-                                    fontSize: 14,
+                                    paddingRight: 35,
 
-                                    textAlign: 'center',
-                                    width: '100%'
+                                    textAlign: 'center'
+                                }}>
+                                    Total
+                           </Text>
+
+                                <TouchableOpacity
+                                    // onPress={() => this.props.navigation.navigate('Cources')}
+                                    // onPress={() => this.handleNavigation(
+                                    //     "screen.Cources",
+                                    //     // this.state.totalInvoiceDue
+                                    // )}
+                                    style={{
+                                        flexDirection: "row",
+                                        backgroundColor: "#F0E2D0",
+                                        alignItems: "center",
+                                        marginTop: 5,
+                                        width: 140,
+                                        paddingVertical: 10,
+                                        borderRadius: 14,
+
+                                        marginBottom: 10,
+
+
+                                    }}
+                                >
+                                    <Text style={{
+                                        color: "#000",
+
+                                        fontWeight: 'bold',
+                                        fontSize: 14,
+
+                                        textAlign: 'center',
+                                        width: '100%'
 
 
 
-                                }}>20 </Text>
+                                    }}>20 </Text>
 
-                            </TouchableOpacity>
+                                </TouchableOpacity>
+                            </View>
                         </View>
-                    </View>
+                        :
+                        <View style={{ marginBottom: 100 }}></View>
+                    }
+
                     {/* ------- END CARD INVOICE ------- */}
 
                     {/* -------- NEWS N PROMOTION -------- */}

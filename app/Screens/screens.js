@@ -11,7 +11,8 @@ import Cources from './Cources/Cources';
 import CourseList from './CourseList/CourseList';
 import NewsList from './News/NewsList';
 
-//
+//profile
+import Profile from './Profile'
 
 
 
@@ -28,7 +29,11 @@ export function registerScreen() {
 
     Navigation.registerComponent('tab.Home', () => gestureHandlerRootHOC(Home));
 
+
     Navigation.registerComponent('screen.Login', () => gestureHandlerRootHOC(Login));
     Navigation.registerComponent('screen.Cources', () => gestureHandlerRootHOC(Cources));
+
+    //Profile
+    Navigation.registerComponent('tab.Profile', () => gestureHandlerRootHOC(Profile));
 
 }

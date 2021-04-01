@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, ActivityIndicator, ImageBackground } from "react-native";
 import { goToAuth, goHome } from "./navigation";
-import { session } from "../_helpers";
+import { sessions } from "../_helpers";
 
 class Initializing extends Component {
     async componentDidMount() {
         try {
-            const user = await session.getSess("@isLogin");
+            const user = await sessions.getSess("@isLogin");
             console.log("user: ", user);
             if (user) {
                 setTimeout(() => {
@@ -15,15 +15,15 @@ class Initializing extends Component {
                 }, 1000);
             } else {
                 setTimeout(() => {
-                    // goToAuth();
-                    goHome();
+                    goToAuth();
+                    // goHome();
                 }, 1000);
             }
         } catch (err) {
             console.log("error: ", err);
             setTimeout(() => {
-                // goToAuth();
-                goHome();
+                goToAuth();
+                // goHome();
             }, 1000);
         }
     }
@@ -43,7 +43,9 @@ export default Initializing;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        alignContent: 'center',
+        alignItems: 'center'
     },
     background: {
         flex: 1,
