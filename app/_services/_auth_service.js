@@ -3,7 +3,8 @@ import { configConstants } from "../_constants";
 
 export const authService = {
     login,
-    changePass
+    changePass,
+    logout
 };
 
 const { urlApi, headers } = configConstants;
@@ -13,6 +14,18 @@ async function login(datas) {
     const data = datas;
     return await axios
         .post(`${api}/Login`, data, { headers })
+        .then(res => {
+            return res.data;
+        })
+        .catch(err => {
+            console.log('err', err);
+        });
+}
+
+async function logout(datas) {
+    const data = datas;
+    return await axios
+        .post(`${api}/Logout`, data, { headers })
         .then(res => {
             return res.data;
         })

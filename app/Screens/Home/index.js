@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, ImageBackground, TouchableOpacity, Image, Animated, SafeAreaView, SectionList, FlatList, ScrollViewComponent, Platform, StatusBar } from 'react-native'
+import { View, Text, ImageBackground, TouchableOpacity, Image, Animated, SafeAreaView, SectionList, FlatList, ScrollViewComponent, Platform, StatusBar, Dimensions, StyleSheet } from 'react-native'
 import { ScrollView, TextInput } from 'react-native-gesture-handler'
 import CourseList from '../CourseList/CourseList'
 import { Navigation } from "react-native-navigation";
@@ -12,6 +12,8 @@ import NewsListImage from '../News/NewListImage';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { sessions } from '../../_helpers/';
 import OfflineNotice from "@Component/OfflineNotice";
+import Preview from '../../components/FlatListSlider/Preview';
+import FlatListSlider from '../../components/FlatListSlider/FlatListSlider';
 
 
 const data = [
@@ -77,6 +79,14 @@ export default class Home extends React.Component {
                 require('@Asset/images/Home.png'),
                 require('@Asset/images/kincir_background.png'),
                 require('@Asset/images/relax_background.png'),
+            ],
+            datagambar: [
+                { id: 'ini judul untuk news', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', img: '@Asset/images/new/news/Shelton.jpg' },
+                { id: 'ini judul untuk news', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', img: '@Asset/images/new/news/Shelton.jpg' },
+                { id: 'c', value: 'C', img: 'https://images.unsplash.com/photo-1567226475328-9d6baaf565cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60', },
+                { id: 'd', value: 'D', img: 'https://images.unsplash.com/photo-1567226475328-9d6baaf565cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60', },
+                { id: 'e', value: 'E', img: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80', },
+                { id: 'f', value: 'F', img: 'https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80', },
             ],
         };
         this.setState(() => {
@@ -191,6 +201,7 @@ export default class Home extends React.Component {
         // console.log(this.getRandomPic())
         console.log('randompict', this.state.imgMap[this.state.randomImg]);
         const { user } = this.state;
+        const screenWidth = Math.round(Dimensions.get('window').width);
         // let imgcoba = 
         return (
             <ImageBackground
@@ -204,31 +215,11 @@ export default class Home extends React.Component {
                 {/* <Image source={require('@Asset/images/Home.png')}>
 
                 </Image> */}
+
+
                 <SafeAreaView>
-                    <View style={{ flexDirection: 'row', width: '100%', alignContent: 'center', alignItems: 'center' }}>
 
-                        <View style={{
 
-                            alignItems: "flex-end",
-
-                            paddingHorizontal: 20
-                        }}>
-
-                            <Image
-                                source={require('@Asset/images/ae.png')}
-                                style={{
-                                    height: 80,
-                                    width: 80,
-                                    paddingHorizontal: 10,
-                                    paddingVertical: 10,
-                                    borderRadius: 50,
-                                    marginTop: 30,
-                                }}
-                            />
-                            {/* </View> */}
-                        </View>
-
-                    </View>
                     <Text style={{
                         paddingHorizontal: 15,
                         fontSize: 20,
@@ -250,9 +241,41 @@ export default class Home extends React.Component {
                     </Text>
                 </SafeAreaView>
                 <ScrollView>
+                    <FlatListSlider
+                        data={this.state.datagambar}
+                        width={275}
+                        timer={4000}
+                        component={<Preview />}
+                        onPress={item => alert(JSON.stringify(item))}
+                        indicatorActiveWidth={40}
+                        contentContainerStyle={styles.contentStyle}
+                    />
+                    <FlatListSlider
+                        data={this.state.datagambar}
+                        timer={5000}
+                        onPress={item => alert(JSON.stringify(item))}
+                        indicatorContainerStyle={{ position: 'absolute', bottom: 20 }}
+                        indicatorActiveColor={'#8e44ad'}
+                        indicatorInActiveColor={'#ffffff'}
+                        indicatorActiveWidth={30}
+                        animation
+                    />
 
 
-
+                    <FlatListSlider
+                        data={this.state.datagambar}
+                        timer={2000}
+                        imageKey={'img'}
+                        local={false}
+                        width={screenWidth}
+                        separator={0}
+                        loop={true}
+                        autoscroll={true}
+                        currentIndexCallback={index => console.log('Index', index)}
+                        onPress={item => alert(JSON.stringify(item))}
+                        indicator
+                        animation
+                    />
 
                     {/* SEARCH BAR */}
                     {/* <View style={{
@@ -300,8 +323,6 @@ export default class Home extends React.Component {
                                     color: "#000",
                                     fontSize: 16,
                                     fontFamily: "Bold",
-                                    // width: 250,
-
                                     paddingRight: 50
                                 }}>
                                     <Icon name="receipt-outline" style={{ fontSize: 18 }}></Icon> Invoice
@@ -323,7 +344,6 @@ export default class Home extends React.Component {
                                         borderRadius: 14,
                                         paddingHorizontal: 10,
                                         marginBottom: 10,
-
                                     }}
                                 >
                                     <Text style={{
@@ -332,21 +352,13 @@ export default class Home extends React.Component {
                                         fontWeight: 'bold',
                                         fontSize: 14,
                                         textAlign: 'left',
-
-
-
-
                                     }}>IDR </Text>
                                     <Text style={{
                                         color: "#000",
-
                                         fontWeight: 'bold',
                                         fontSize: 14,
                                         textAlign: 'right',
                                         width: '70%'
-
-
-
                                     }}>500,000.00 </Text>
 
 
@@ -384,23 +396,15 @@ export default class Home extends React.Component {
                                         width: 140,
                                         paddingVertical: 10,
                                         borderRadius: 14,
-
                                         marginBottom: 10,
-
-
                                     }}
                                 >
                                     <Text style={{
                                         color: "#000",
-
                                         fontWeight: 'bold',
                                         fontSize: 14,
-
                                         textAlign: 'center',
                                         width: '100%'
-
-
-
                                     }}>20 </Text>
 
                                 </TouchableOpacity>
@@ -414,13 +418,13 @@ export default class Home extends React.Component {
 
                     {/* -------- NEWS N PROMOTION -------- */}
                     <Text style={{
-                        color: "#000",
+                        color: "#345c74",
                         fontFamily: "Bold",
-                        fontSize: 16,
+                        fontSize: 20,
                         paddingHorizontal: 20,
-                        marginTop: 30,
-                        marginBottom: 10
-                    }}>News and Promotions</Text>
+                        marginTop: 20,
+                        marginBottom: 5
+                    }}>News</Text>
 
                     <FlatList data={data}
                         renderItem={({ item }) => (
@@ -449,36 +453,9 @@ export default class Home extends React.Component {
                         keyExtractor={item => item.id}
                         numColumns={2}
                     />
-                    {/* -------- END NEWS N PROMOTION -------- */}
+                    {/* -------- END NEWS -------- */}
 
-
-                    <Text style={{
-                        color: "#345c74",
-                        fontFamily: "Bold",
-                        fontSize: 20,
-                        paddingHorizontal: 20,
-                        marginTop: 20,
-                        marginBottom: 10
-                    }}>Courses in progress 1</Text>
-
-
-                    <CourseList
-                        img={require('@Asset/images/xd.png')}
-                        title="Adobe XD Prototyping"
-                        bg="#fdddf3"
-                    />
-                    <CourseList
-                        img={require('@Asset/images/sketch.png')}
-                        title="Sketch shortcuts and tricks"
-                        bg="#fef8e3"
-                    />
-                    <CourseList
-                        img={require('@Asset/images/ae.png')}
-                        title="UI Motion Design in After Effects"
-                        bg="#fcf2ff"
-                    />
-
-
+                    {/* -------- PROMOTIONS -------- */}
 
                     <Text style={{
                         color: "#345c74",
@@ -487,7 +464,7 @@ export default class Home extends React.Component {
                         paddingHorizontal: 20,
                         marginTop: 20,
                         marginBottom: 10
-                    }}>Courses in progress 2</Text>
+                    }}>Promotions</Text>
 
                     <View style={{ paddingBottom: 140 }}>
                         <CourseList
@@ -507,6 +484,8 @@ export default class Home extends React.Component {
                         />
 
                     </View>
+
+                    {/* -------- END PROMOTIONS -------- */}
 
 
                 </ScrollView>
@@ -549,28 +528,29 @@ export default class Home extends React.Component {
                                 <View style={{ flexDirection: 'column', textAlign: 'center' }}>
                                     <Image
                                         source={require('@Asset/images/new/menu/billing.png')}
-                                        style={{ width: 40, height: 40, marginLeft: 10, marginRight: 10, marginTop: 10 }}
+                                        style={{ width: 40, height: 40, marginLeft: 20, marginRight: 20, marginTop: 25 }}
                                     />
                                     <Text style={[Style.textBlack, { textAlign: 'center' }]}>Billing</Text>
                                 </View>
                                 <View>
                                     <Image
-                                        source={require('@Asset/images/new/menu/finance.png')}
-                                        style={{ width: 70, height: 70, marginLeft: 10, marginRight: 10, marginTop: 10 }}
+                                        source={require('@Asset/images/new/menu/finance2.png')}
+                                        // style={{ width: 70, height: 70, marginLeft: 10, marginRight: 10, marginTop: 10 }}
+                                        style={{ width: 40, height: 40, marginLeft: 20, marginRight: 20, marginTop: 25 }}
                                     />
                                     <Text style={[Style.textBlack, { textAlign: 'center' }]}>Finance</Text>
                                 </View>
                                 <View>
                                     <Image
-                                        source={require('@Asset/images/new/menu/meter.png')}
-                                        style={{ width: 70, height: 70, marginLeft: 10, marginRight: 10, marginTop: 10 }}
+                                        source={require('@Asset/images/new/menu/meter2.png')}
+                                        style={{ width: 40, height: 40, marginLeft: 20, marginRight: 20, marginTop: 25 }}
                                     />
                                     <Text style={[Style.textBlack, { textAlign: 'center' }]}>Meter</Text>
                                 </View>
                                 <View>
                                     <Image
-                                        source={require('@Asset/images/new/menu/overtime.png')}
-                                        style={{ width: 70, height: 70, marginLeft: 10, marginRight: 10, marginTop: 10 }}
+                                        source={require('@Asset/images/new/menu/overtime2.png')}
+                                        style={{ width: 40, height: 40, marginLeft: 20, marginRight: 20, marginTop: 25 }}
                                     />
                                     <Text style={[Style.textBlack, { textAlign: 'center' }]}>Overtime</Text>
                                 </View>
@@ -580,31 +560,31 @@ export default class Home extends React.Component {
 
                                 <View style={{ flexDirection: 'column', textAlign: 'center' }}>
                                     <Image
-                                        source={require('@Asset/images/new/menu/helpdesk2.png')}
-                                        style={{ width: 70, height: 70, marginLeft: 10, marginRight: 10, marginTop: 10 }}
+                                        source={require('@Asset/images/new/menu/helpdesk3.png')}
+                                        style={{ width: 40, height: 40, marginLeft: 20, marginRight: 20, marginTop: 25 }}
                                     />
                                     <Text style={[Style.textBlack, { textAlign: 'center' }]}>Helpdesk</Text>
                                 </View>
                                 <View>
                                     <Image
-                                        source={require('@Asset/images/new/menu/finance.png')}
-                                        style={{ width: 70, height: 70, marginLeft: 10, marginRight: 10, marginTop: 10 }}
+                                        source={require('@Asset/images/new/menu/housekeeping.png')}
+                                        style={{ width: 40, height: 40, marginLeft: 20, marginRight: 20, marginTop: 25 }}
                                     />
-                                    <Text style={[Style.textBlack, { textAlign: 'center' }]}>Finance</Text>
+                                    <Text style={[Style.textBlack, { textAlign: 'center' }]}>Housekeeping</Text>
                                 </View>
                                 <View>
                                     <Image
-                                        source={require('@Asset/images/new/menu/meter.png')}
-                                        style={{ width: 70, height: 70, marginLeft: 10, marginRight: 10, marginTop: 10 }}
+                                        source={require('@Asset/images/new/menu/mart.png')}
+                                        style={{ width: 40, height: 40, marginLeft: 20, marginRight: 20, marginTop: 25 }}
                                     />
-                                    <Text style={[Style.textBlack, { textAlign: 'center' }]}>Meter</Text>
+                                    <Text style={[Style.textBlack, { textAlign: 'center' }]}>Mart</Text>
                                 </View>
                                 <View>
                                     <Image
-                                        source={require('@Asset/images/new/menu/overtime.png')}
-                                        style={{ width: 70, height: 70, marginLeft: 10, marginRight: 10, marginTop: 10 }}
+                                        source={require('@Asset/images/new/menu/club.png')}
+                                        style={{ width: 40, height: 40, marginLeft: 20, marginRight: 20, marginTop: 25 }}
                                     />
-                                    <Text style={[Style.textBlack, { textAlign: 'center' }]}>Overtime</Text>
+                                    <Text style={[Style.textBlack, { textAlign: 'center' }]}>Club</Text>
                                 </View>
 
                             </View>
@@ -625,3 +605,13 @@ export default class Home extends React.Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    separator: {
+        height: 20,
+    },
+    contentStyle: {
+        paddingHorizontal: 16,
+        // flex: 1
+    },
+});

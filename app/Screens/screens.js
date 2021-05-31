@@ -29,7 +29,7 @@ export function registerScreen() {
 
     Navigation.registerComponent('tab.Home', () => gestureHandlerRootHOC(Home));
 
-
+    Navigation.registerComponent('screen.Home', () => gestureHandlerRootHOC(Home));
     Navigation.registerComponent('screen.Login', () => gestureHandlerRootHOC(Login));
     Navigation.registerComponent('screen.Cources', () => gestureHandlerRootHOC(Cources));
 

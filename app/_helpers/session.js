@@ -4,7 +4,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export const sessions = {
     setSess,
     getSess,
-    destroySess
+    destroySess,
+    _removeData,
+    _getAllData,
 }
 
 async function setSess(name, data) {
@@ -37,3 +39,44 @@ async function destroySess() {
         console.log("ErrorStoreData", error);
     }
 }
+
+
+async function _removeData(key) {
+    try {
+        await AsyncStorage.removeItem(key);
+        return true;
+    }
+    catch (exception) {
+        return false;
+    }
+}
+
+async function _getAllData() {
+    try {
+        const cb = await AsyncStorage.getAllKeys();
+        return cb;
+    }
+    catch (exception) {
+        return false;
+    }
+}
+
+// async function _removeData = async (key) => {
+//     try {
+//         await AsyncStorage.removeItem(key);
+//         return true;
+//     }
+//     catch (exception) {
+//         return false;
+//     }
+// }
+
+// export const _getAllData = async () => {
+//     try {
+//         const cb = await AsyncStorage.getAllKeys();
+//         return cb;
+//     }
+//     catch (exception) {
+//         return false;
+//     }
+// }

@@ -99,10 +99,25 @@ export default {
         backgroundColor: "#41B649",
         paddingHorizontal: 5
     },
+    btnMedium: {
+        width: "100%",
+        borderRadius: 8,
+        paddingVertical: 20,
+        backgroundColor: "#41B649",
+        paddingHorizontal: 5,
+        alignItems: 'center',
+        textAlign: "center",
+
+
+    },
     loginBtnText: {
         color: "#fff",
         fontFamily: "Montserrat-Regular",
-        fontSize: 12
+        fontSize: 12,
+        textAlign: "center",
+        alignItems: 'center',
+        width: '100%'
+
     },
     loginBtnIcon: {
         color: "#fff",
