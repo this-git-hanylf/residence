@@ -1,11 +1,12 @@
 import React from 'react'
 import { Text, TouchableOpacity, View, Image } from 'react-native'
 // import ProgressCircle from 'react-native-progress-circle'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export default class CourseList extends React.Component {
     render() {
-        const { img, title, bg, onPress } = this.props
+        const { img, title, bg, onPress, datepost } = this.props
         return (
             <TouchableOpacity
                 onPress={onPress}
@@ -24,7 +25,7 @@ export default class CourseList extends React.Component {
                     style={{ width: 40, height: 40 }}
                 />
 
-                <View>
+                <View style={{ width: '80%' }}>
                     <Text style={{
                         color: "#345c74",
                         fontFamily: "Bold",
@@ -36,12 +37,15 @@ export default class CourseList extends React.Component {
                         color: "#f58084",
                         fontFamily: "Medium",
                         fontSize: 12,
-                        paddingHorizontal: 20
+                        paddingHorizontal: 20,
+
                     }}>
-                        10 hours, 19 lessons
-                         </Text>
+                        {datepost}
+                    </Text>
                 </View>
-                <Text style={{
+
+                <Icon name="call" style={{ fontSize: 20, color: 'green', textAlign: 'right' }}></Icon>
+                {/* <Text style={{
                     color: "#345c74",
                     fontFamily: "Medium",
                     fontSize: 13,
@@ -49,7 +53,7 @@ export default class CourseList extends React.Component {
                     paddingRight: 10
                 }}>
                     25%
-                    </Text>
+                    </Text> */}
                 {/* <ProgressCircle
                     percent={30}
                     radius={17}

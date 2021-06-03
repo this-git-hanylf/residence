@@ -47,10 +47,10 @@ export default class Cources extends React.Component {
     render() {
         return (
             <ImageBackground
-                source={require('@Asset/images/cat.png')}
-                style={{ width: "100%", height: "100%" }}
+                // source={require('@Asset/images/cat.png')}
+                style={{ width: "100%", height: "100%", backgroundColor: '#8bbcdb' }}
             >
-                <View style={{
+                {/* <View style={{
                     flexDirection: "row",
                     width: "100%",
                     paddingHorizontal: 20
@@ -83,7 +83,7 @@ export default class Cources extends React.Component {
                             style={{ height: 15, width: 20 }}
                         />
                     </View>
-                </View>
+                </View> */}
                 <Text style={{
                     color: "#FFF",
                     fontSize: 35,
@@ -91,12 +91,16 @@ export default class Cources extends React.Component {
                     width: 200,
                     alignSelf: "center",
                     textAlign: "center",
-                    marginTop: 34
+                    marginTop: 34,
+                    paddingTop: 40
 
                 }}>
-                    UI/UX Cources
+                    EMERGENCY CALLS
                 </Text>
-
+                <Image
+                    source={require('@Asset/images/new/emergencycall/siren.png')}
+                    style={{ width: 150, height: 150, alignSelf: 'center', top: 20 }}
+                />
                 <Modalize
                     handleStyle={{
                         marginTop: 30,
@@ -116,8 +120,8 @@ export default class Cources extends React.Component {
                         <ScrollView style={{ marginTop: 40 }}>
                             <CourseList
                                 // onPress={() => this.props.navigation.navigate("Xd")}s
-                                img={require('@Asset/images/xd.png')}
-                                title="Adobe XD Prototyping"
+                                img={require('@Asset/images/new/emergencycall/fireman.png')}
+                                title="Firefighter"
                                 bg="#fdddf3"
                             />
                             <CourseList
@@ -154,16 +158,7 @@ export default class Cources extends React.Component {
                     </View>
 
                 </Modalize>
-                {/* <Button name="Close to initial position" onPress={() => this.handleClose('alwaysOpen')} />
-                <Button name="Close completely" onPress={() => this.handleClose} /> */}
-                {/* <Modalize
-                    ref={modalizeRef}
-                    modalStyle={s.content__modal}
-                    alwaysOpen={85}
-                    handlePosition="inside"
-                >
-                    {this.renderContent}
-                </Modalize> */}
+
             </ImageBackground>
         )
     }

@@ -1,5 +1,7 @@
 import React from 'react'
 import { View, Text, ImageBackground, TouchableOpacity, Image, Animated, SafeAreaView, SectionList, FlatList, ScrollViewComponent, Platform, StatusBar, Dimensions, StyleSheet } from 'react-native'
+import { Card, CardItem, Body, Content } from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
 import { ScrollView, TextInput } from 'react-native-gesture-handler'
 import CourseList from '../CourseList/CourseList'
 import { Navigation } from "react-native-navigation";
@@ -14,6 +16,8 @@ import { sessions } from '../../_helpers/';
 import OfflineNotice from "@Component/OfflineNotice";
 import Preview from '../../components/FlatListSlider/Preview';
 import FlatListSlider from '../../components/FlatListSlider/FlatListSlider';
+import moment from 'moment';
+
 
 
 const data = [
@@ -71,6 +75,8 @@ export default class Home extends React.Component {
             dataNews: [],
             dataTower: [],
             dataProfile: [],
+            news: [],
+            promo: [],
 
             scrollY: new Animated.Value(0),
             noOfPic: 2,
@@ -81,16 +87,17 @@ export default class Home extends React.Component {
                 require('@Asset/images/relax_background.png'),
             ],
             datagambar: [
-                { id: 'ini judul untuk news', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', img: '@Asset/images/new/news/Shelton.jpg' },
-                { id: 'ini judul untuk news', value: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', img: '@Asset/images/new/news/Shelton.jpg' },
-                { id: 'c', value: 'C', img: 'https://images.unsplash.com/photo-1567226475328-9d6baaf565cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60', },
-                { id: 'd', value: 'D', img: 'https://images.unsplash.com/photo-1567226475328-9d6baaf565cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60', },
-                { id: 'e', value: 'E', img: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80', },
-                { id: 'f', value: 'F', img: 'https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80', },
+                { id: 'ini judul untuk news', image: 'https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' },
+                { id: 'ini judul untuk news', image: 'https://images.unsplash.com/photo-1567226475328-9d6baaf565cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60' },
+                { id: 'c', value: 'C', image: 'https://images.unsplash.com/photo-1567226475328-9d6baaf565cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60', },
+                { id: 'd', value: 'D', image: 'https://images.unsplash.com/photo-1567226475328-9d6baaf565cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60', },
+                { id: 'e', value: 'E', image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80', },
+                { id: 'f', value: 'F', image: 'https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80', },
             ],
         };
         this.setState(() => {
             // this.getRandomPic();
+
         });
 
         Navigation.events().bindComponent(this);
@@ -108,7 +115,7 @@ export default class Home extends React.Component {
             email: await sessions.getSess("@User"),
             user: await sessions.getSess("@isLogin"),
             // user: 'hany',
-            // name: await sessions.getSess("@Name"),
+            name: await sessions.getSess("@Name"),
             // token: await sessions.getSess("@Token"),
             // userId: await sessions.getSess("@UserId"),
             // dataTower: await sessions.getSess("@UserProject"),
@@ -120,6 +127,8 @@ export default class Home extends React.Component {
         console.log('data', data);
 
         this.setState(data, () => {
+            this.getNews();
+            this.getPromo();
 
         })
     }
@@ -190,6 +199,90 @@ export default class Home extends React.Component {
     //     });
     // }
 
+    getNews = () => {
+        fetch(
+            "https://my.api.mockaroo.com/news.json?key=0e67c810",
+            // "https://my.api.mockaroo.com/news.json",
+            {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    // Token: this.state.token
+                }
+            }
+        )
+            .then(response => response.json())
+            .then((res) => {
+                if (!res.Error) {
+                    const resData = res;
+                    this.setState({ news: resData });
+                } else {
+                    this.setState({ isLoaded: !this.state.isLoaded }, () => {
+                        alert(res.Pesan);
+                    });
+                }
+                console.log("getNews", res);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+    };
+
+    getPromo = () => {
+        fetch(
+            "https://my.api.mockaroo.com/demo_adv_scheme.json?key=0e67c810",
+            // "https://my.api.mockaroo.com/news.json",
+            {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    // Token: this.state.token
+                }
+            }
+        )
+            .then(response => response.json())
+            .then((res) => {
+                if (!res.Error) {
+                    let resData = res;
+                    let data = [];
+                    resData.map((item) => {
+                        let items = {
+                            // ...item,
+                            rowID: item.r,
+                            adv_cd: item.a,
+                            descs: item.b,
+                            status: item.c,
+                            start: item.d,
+                            end: item.e,
+                            banner: item.f,
+                            audit_user: item.g,
+                            audit_date: item.h,
+                            image: item.i,
+                        };
+                        data.push(items);
+                    });
+                    // ---- script diatas guna nya untuk ubah nama props dari db, supaya sesuai dengan sistem di mobile
+                    console.log('datapromonih', data);
+
+
+                    // const resData = res; biasanyya pakai ini langsung bisa, kalo nama props sesuuai dengan db dan mobile
+                    this.setState({ promo: data });
+                } else {
+                    this.setState({ isLoaded: !this.state.isLoaded }, () => {
+                        alert(res.Pesan);
+                    });
+                }
+                console.log("getPromo", res);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+    };
+
 
 
     renderHeader = () => {
@@ -209,7 +302,7 @@ export default class Home extends React.Component {
                 // source={this.state.randomImg}
                 // source={this.getRandomPic()}
                 source={this.state.imgMap[this.state.randomImg]}
-                style={{ width: "100%", height: "100%", backgroundColor: '#fff' }}
+                style={{ width: "100%", height: "100%", backgroundColor: '#f7f5f2' }}
             >
                 <OfflineNotice />
                 {/* <Image source={require('@Asset/images/Home.png')}>
@@ -218,8 +311,6 @@ export default class Home extends React.Component {
 
 
                 <SafeAreaView>
-
-
                     <Text style={{
                         paddingHorizontal: 15,
                         fontSize: 20,
@@ -229,7 +320,7 @@ export default class Home extends React.Component {
                         // alignItems: "flex-start",
                         color: "#000"
                     }}>
-                        Welcome back {this.state.user != null ? this.state.user : <Text style={{
+                        Welcome back {this.state.user != null ? this.state.name : <Text style={{
                             paddingHorizontal: 15,
                             fontSize: 20,
                             paddingTop: 20,
@@ -242,38 +333,13 @@ export default class Home extends React.Component {
                 </SafeAreaView>
                 <ScrollView>
                     <FlatListSlider
-                        data={this.state.datagambar}
-                        width={275}
-                        timer={4000}
-                        component={<Preview />}
-                        onPress={item => alert(JSON.stringify(item))}
-                        indicatorActiveWidth={40}
-                        contentContainerStyle={styles.contentStyle}
-                    />
-                    <FlatListSlider
-                        data={this.state.datagambar}
+                        data={this.state.promo}
                         timer={5000}
                         onPress={item => alert(JSON.stringify(item))}
                         indicatorContainerStyle={{ position: 'absolute', bottom: 20 }}
                         indicatorActiveColor={'#8e44ad'}
                         indicatorInActiveColor={'#ffffff'}
                         indicatorActiveWidth={30}
-                        animation
-                    />
-
-
-                    <FlatListSlider
-                        data={this.state.datagambar}
-                        timer={2000}
-                        imageKey={'img'}
-                        local={false}
-                        width={screenWidth}
-                        separator={0}
-                        loop={true}
-                        autoscroll={true}
-                        currentIndexCallback={index => console.log('Index', index)}
-                        onPress={item => alert(JSON.stringify(item))}
-                        indicator
                         animation
                     />
 
@@ -314,7 +380,19 @@ export default class Home extends React.Component {
                             borderRadius: 20,
                             paddingVertical: 5,
                             paddingLeft: 30,
+                            marginBottom: 10,
                             // width: '100%'
+
+                            // -- create shadow
+                            shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 1,
+                            },
+                            shadowOpacity: 0.22,
+                            shadowRadius: 2.22,
+                            elevation: 3,
+                            // -- end create shadows
                         }}>
 
                             <View style={{ width: '50%' }}>
@@ -326,7 +404,7 @@ export default class Home extends React.Component {
                                     paddingRight: 50
                                 }}>
                                     <Icon name="receipt-outline" style={{ fontSize: 18 }}></Icon> Invoice
-                           </Text>
+                                </Text>
 
                                 <TouchableOpacity
                                     // // onPress={() => this.props.navigation.navigate('Cources')}
@@ -416,6 +494,148 @@ export default class Home extends React.Component {
 
                     {/* ------- END CARD INVOICE ------- */}
 
+
+                    {/* -------- MENU - MENU ----------- */}
+                    <Grid>
+                        <Col style={{ height: 80, paddingLeft: 10, paddingRight: 10 }}>
+                            <TouchableOpacity
+                                // // onPress={() => this.props.navigation.navigate('Cources')}
+                                // onPress={() => this.handleNavigation(
+                                //     "screen.Cources",
+                                //     // this.state.totalInvoiceDue
+                                // )}
+                                style={{
+                                    flexDirection: "row",
+                                    backgroundColor: "#fff",
+                                    alignItems: "center",
+
+                                    height: 80,
+                                    width: '100%',
+                                    paddingVertical: 10,
+
+                                    paddingHorizontal: 10,
+                                    marginBottom: 10,
+                                    borderRadius: 20,
+                                    textAlign: 'center',
+
+                                    // -- create shadow
+                                    shadowColor: "#000",
+                                    shadowOffset: {
+                                        width: 0,
+                                        height: 1,
+                                    },
+                                    shadowOpacity: 0.22,
+                                    shadowRadius: 2.22,
+                                    elevation: 3,
+                                    // -- end create shadow
+
+                                }}
+                            >
+                                <Icon name="receipt-outline" style={{ fontSize: 25, padding: 5 }}></Icon>
+                                <View style={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle', flexDirection: 'row' }}>
+                                    <Text style={{
+                                        color: "#000",
+                                        fontSize: 16,
+                                        fontFamily: "Bold",
+                                    }}>
+                                        Billing
+                                    </Text>
+                                </View>
+
+                            </TouchableOpacity>
+                        </Col>
+                        <Col style={{ height: 80, paddingLeft: 10, paddingRight: 10 }}>
+                            <TouchableOpacity
+                                // // onPress={() => this.props.navigation.navigate('Cources')}
+                                // onPress={() => this.handleNavigation(
+                                //     "screen.Cources",
+                                //     // this.state.totalInvoiceDue
+                                // )}
+                                style={{
+                                    flexDirection: "row",
+                                    backgroundColor: "#fff",
+                                    alignItems: "center",
+
+                                    height: 80,
+                                    width: '100%',
+                                    paddingVertical: 10,
+                                    borderRadius: 20,
+                                    paddingHorizontal: 10,
+                                    marginBottom: 10,
+
+                                    // -- create shadow
+                                    shadowColor: "#000",
+                                    shadowOffset: {
+                                        width: 0,
+                                        height: 1,
+                                    },
+                                    shadowOpacity: 0.22,
+                                    shadowRadius: 2.22,
+                                    elevation: 3,
+                                    // -- end create shadow
+                                }}
+                            >
+                                <Icon name="receipt-outline" style={{ fontSize: 25, padding: 5 }}></Icon>
+                                <View style={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle', flexDirection: 'row' }}>
+                                    <Text style={{
+                                        color: "#000",
+                                        fontSize: 16,
+                                        fontFamily: "Bold",
+
+                                    }}>
+                                        Customer Services
+                                    </Text>
+                                </View>
+                            </TouchableOpacity>
+                        </Col>
+                        <Col style={{ height: 80, paddingLeft: 10, paddingRight: 10 }}>
+                            <TouchableOpacity
+                                // // onPress={() => this.props.navigation.navigate('Cources')}
+                                // onPress={() => this.handleNavigation(
+                                //     "screen.Cources",
+                                //     // this.state.totalInvoiceDue
+                                // )}
+                                style={{
+                                    flexDirection: "row",
+                                    backgroundColor: "#fff",
+                                    alignItems: "center",
+
+                                    height: 80,
+                                    width: '100%',
+                                    paddingVertical: 10,
+                                    borderRadius: 20,
+                                    paddingHorizontal: 10,
+                                    marginBottom: 10,
+
+                                    // -- create shadow
+                                    shadowColor: "#000",
+                                    shadowOffset: {
+                                        width: 0,
+                                        height: 1,
+                                    },
+                                    shadowOpacity: 0.22,
+                                    shadowRadius: 2.22,
+                                    elevation: 3,
+                                    // -- end create shadow
+                                }}
+                            >
+                                <Icon name="receipt-outline" style={{ fontSize: 25, padding: 5 }}></Icon>
+                                <View style={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center', verticalAlign: 'middle', flexDirection: 'row' }}>
+                                    <Text style={{
+                                        color: "#000",
+                                        fontSize: 16,
+                                        fontFamily: "Bold",
+
+                                    }}>
+                                        Fasilitas
+                                    </Text>
+                                </View>
+                            </TouchableOpacity>
+                        </Col>
+                    </Grid>
+
+                    {/* -------- END MENU - MENU ----------- */}
+
                     {/* -------- NEWS N PROMOTION -------- */}
                     <Text style={{
                         color: "#345c74",
@@ -426,18 +646,18 @@ export default class Home extends React.Component {
                         marginBottom: 5
                     }}>News</Text>
 
-                    <FlatList data={data}
+                    <FlatList data={this.state.news}
                         renderItem={({ item }) => (
                             // <View>
 
                             <NewsList
-                                desc={item.value}
+                                desc={item.i}
                                 bg={Colors.bg_peach}
                                 // bg={Style.hijaumuda}
-                                // img={{ uri: item.img }}
-                                img={require('@Asset/images/new/news/Shelton.jpg')}
+                                img={{ uri: item.g }}
+                                // img={require('@Asset/images/new/news/Shelton.jpg')}
 
-                                title={item.id}
+                                title={item.j}
                                 numColumns={2}
                                 colorTextTitle={"#000"}
                                 colorTextDesc={"#000"}
@@ -450,7 +670,7 @@ export default class Home extends React.Component {
 
                         )}
                         style={{ flex: 1, marginVertical: 20 }}
-                        keyExtractor={item => item.id}
+                        keyExtractor={item => item.r}
                         numColumns={2}
                     />
                     {/* -------- END NEWS -------- */}
@@ -465,25 +685,27 @@ export default class Home extends React.Component {
                         marginTop: 20,
                         marginBottom: 10
                     }}>Promotions</Text>
-
-                    <View style={{ paddingBottom: 140 }}>
-                        <CourseList
-                            img={require('@Asset/images/xd.png')}
-                            title="Adobe XD Prototyping"
-                            bg="#fdddf3"
-                        />
-                        <CourseList
-                            img={require('@Asset/images/sketch.png')}
-                            title="Sketch shortcuts and tricks"
-                            bg="#fef8e3"
-                        />
-                        <CourseList
-                            img={require('@Asset/images/ae.png')}
-                            title="UI Motion Design in After Effects"
-                            bg="#fcf2ff"
-                        />
-
-                    </View>
+                    {/* ----- tampilan awal promo, list seperti biasa  */}
+                    {/* <View style={{ paddingBottom: 140 }}>
+                        {this.state.promo.map((item, index) => (
+                            <CourseList key={index}
+                                img={{ uri: item.image }}
+                                title={item.judul}
+                                bg={index % 2 === 0 ? "#fdddf3" : "#fef8e3"} //jika index  genap, maka warna krem. else ganjil warna pink
+                                datepost={moment(item.date).format('ll')}
+                            />
+                        ))}
+                    </View> */}
+                    {/* -----  tutup tampilan awal promo, list seperti biasa  */}
+                    <FlatListSlider
+                        data={this.state.promo}
+                        width={275}
+                        timer={4000}
+                        component={<Preview />}
+                        onPress={item => alert(JSON.stringify(item))}
+                        indicatorActiveWidth={40}
+                        contentContainerStyle={styles.contentStyle}
+                    />
 
                     {/* -------- END PROMOTIONS -------- */}
 
@@ -491,7 +713,7 @@ export default class Home extends React.Component {
                 </ScrollView>
 
                 {/* MODALIZE SCROLL DIBAWAH */}
-                <Modalize
+                {/* <Modalize
                     handleStyle={{
                         marginTop: 30,
                         backgroundColor: "#e9e9e9",
@@ -589,18 +811,12 @@ export default class Home extends React.Component {
 
                             </View>
 
-                            {/* <CourseList
-                                // onPress={() => this.props.navigation.navigate("Xd")}s
-                                img={require('@Asset/images/xd.png')}
-                                title="Adobe XD Prototyping"
-                                bg="#fdddf3"
-                            />
-                           */}
+                        
                         </View>
                     </ScrollView>
 
 
-                </Modalize>
+                </Modalize> */}
             </ImageBackground >
         )
     }

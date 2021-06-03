@@ -86,7 +86,7 @@ export const goHome = () => Navigation.setRoot({
                     }],
                     options: {
                         bottomTab: {
-                            text: 'Cources',
+                            text: 'Emergency Call',
                             icon: iconStatus,
                             iconInsets: { bottom: -5 },
                             iconColor: iconColor,

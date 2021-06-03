@@ -8,14 +8,18 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "start-reset": "react-native start -- --reset-cache"
+    "start-reset": "react-native start -- --reset-cache",
+    "clean": "rm -rf ./node_modules/ && yarn install",
+    "clean-ios": "cd ./ios && rm -rf ./Pods/ && pod install",
+    "clean:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && rm -vrf android/app/src/main/res/drawable*"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.14.1",
     "@react-native-community/netinfo": "^6.0.0",
     "axios": "^0.21.1",
+    "moment": "^2.29.1",
     "native-base": "^2.15.2",
-    "react": "16.4.1",
+    "react": "16.13.1",
     "react-native": "0.63.4",
     "react-native-device-info": "^8.0.7",
     "react-native-gesture-handler": "^1.10.3",

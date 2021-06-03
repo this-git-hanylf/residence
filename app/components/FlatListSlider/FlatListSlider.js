@@ -168,6 +168,10 @@ export default class FlatListSlider extends Component {
         }
         if (this.state.index < this.state.data.length - 1) {
             this.setState({ index: this.state.index + 1 });
+            this.slider.current.scrollToIndex({
+                index: this.state.index,
+                animated: true,
+            });
         } else {
             this.setState({ index: 0 })
         }
@@ -216,3 +220,32 @@ const styles = StyleSheet.create({
         }),
     },
 });
+
+
+// Penggunaannya yang ditaro di screen home atau screen manapun: 
+// 1 . 
+// <FlatListSlider
+//     data={this.state.datagambar}
+//     width={275}
+//     timer={4000}
+//     component={<Preview />}
+//     onPress={item => alert(JSON.stringify(item))}
+//     indicatorActiveWidth={40}
+//     contentContainerStyle={styles.contentStyle}
+// />
+
+// 2.
+//     < FlatListSlider
+// data = { this.state.datagambar }
+// timer = { 2000}
+// imageKey = { 'image'}
+// local = { false}
+// width = { screenWidth }
+// separator = { 0}
+// loop = { true}
+// autoscroll = { true}
+// currentIndexCallback = { index => console.log('Index', index) }
+// onPress = { item => alert(JSON.stringify(item)) }
+// indicator
+// animation
+//     />

@@ -8,30 +8,6 @@ import {
     Platform,
 } from 'react-native';
 
-// export default (Preview = ({
-//     style,
-//     item,
-//     imageKey,
-//     onPress,
-//     index,
-//     active,
-//     local,
-// }) => {
-//     return (
-//         <TouchableOpacity
-//             style={[styles.videoContainer]}
-//             onPress={() => onPress(item)}>
-//             <View style={[styles.imageContainer, styles.shadow]}>
-//                 <Image
-//                     style={[styles.videoPreview, active ? {} : { height: 120 }]}
-//                     source={{ uri: item[imageKey] }}
-//                 />
-//             </View>
-//             <Text style={styles.desc}>{item.desc}</Text>
-//         </TouchableOpacity>
-//     );
-// });
-
 const Preview = ({
     style,
     item,
@@ -79,6 +55,7 @@ const styles = StyleSheet.create({
     imageContainer: {
         justifyContent: 'center',
         alignItems: 'center',
+
     },
     shadow: {
         ...Platform.select({
