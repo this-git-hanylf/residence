@@ -27,22 +27,22 @@ const Preview = ({
                     source={{ uri: item[imageKey] }}
                 />
             </View>
-            <Text style={styles.desc}>{item.desc}</Text>
+            {/* <Text style={styles.desc}>{item.desc}</Text> */}
         </TouchableOpacity>
     );
 };
 
 const styles = StyleSheet.create({
     videoContainer: {
-        width: 275,
-        paddingVertical: 28,
+        width: 300,
+        paddingVertical: 2,
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 20,
     },
     videoPreview: {
-        width: 275,
-        height: 155,
+        width: 300,
+        height: 200,
         borderRadius: 8,
         resizeMode: 'cover',
     },

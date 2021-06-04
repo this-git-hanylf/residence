@@ -22,10 +22,12 @@ const ChildItem = ({
 };
 
 const styles = StyleSheet.create({
-    container: {},
+    container: {
+        // borderRadius: 20
+    },
     image: {
         height: 230,
-        resizeMode: 'stretch',
+        resizeMode: 'cover',
     },
 });
 

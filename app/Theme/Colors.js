@@ -70,10 +70,16 @@ const colors = {
 
 
     //background color default theme
-    bg_hijaumuda: '#C6EBC9',
-    bg_hijautua: '#70AF85',
+    bg_hijautua: '#b0baa2',
     bg_coklat: '#AA8976',
-    bg_peach: '#F0E2D0',
+    bg_peach: '#f2ede7',
+    bg_peachmuda: '#fff5ec',
+    bg_hijaugelap: '#989c8b',
+    bg_abuabu: '#3d3d3d',
+    bg_iconbawah: '#99a186',
+    bg_putih: '#ffffff'
+
+
 };
 
 export default colors;

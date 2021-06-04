@@ -1,12 +1,12 @@
 import React from 'react'
-import { Text, TouchableOpacity, View, Image } from 'react-native'
+import { Text, TouchableOpacity, View, Image, Linking } from 'react-native'
 // import ProgressCircle from 'react-native-progress-circle'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export default class CourseList extends React.Component {
     render() {
-        const { img, title, bg, onPress, datepost } = this.props
+        const { img, title, bg, onPress, datepost, call, halo } = this.props
         return (
             <TouchableOpacity
                 onPress={onPress}
@@ -29,22 +29,22 @@ export default class CourseList extends React.Component {
                     <Text style={{
                         color: "#345c74",
                         fontFamily: "Bold",
-                        fontSize: 13,
+                        fontSize: 16,
                         paddingHorizontal: 20,
-                        width: 170
+                        width: 200,
+                        // justifyContent: 'space-around',
+                        // alignContent: 'center',
+                        // alignItems: 'baseline',
+                        textAlign: 'justify'
                     }}>{title}</Text>
-                    <Text style={{
-                        color: "#f58084",
-                        fontFamily: "Medium",
-                        fontSize: 12,
-                        paddingHorizontal: 20,
 
-                    }}>
-                        {datepost}
-                    </Text>
                 </View>
 
-                <Icon name="call" style={{ fontSize: 20, color: 'green', textAlign: 'right' }}></Icon>
+                <TouchableOpacity
+                    onPress={call}>
+                    <Icon name="call" style={{ fontSize: 20, color: 'green', textAlign: 'right' }}></Icon>
+                </TouchableOpacity>
+
                 {/* <Text style={{
                     color: "#345c74",
                     fontFamily: "Medium",

@@ -2,6 +2,7 @@ import { Navigation } from 'react-native-navigation'
 import { Platform } from 'react-native';
 const selectedColor = '#aa8976';
 const iconColor = '#70af85';
+const iconWidth = 40;
 
 
 // const selectedColor = '#41B649';
@@ -17,7 +18,7 @@ let iconProfile;
 if (Platform.OS == "android") {
 
     iconHome = require('@Asset/icons/home.png')
-    iconStatus = require('@Asset/icons/status.png')
+    iconStatus = require('@Asset/icons/emergency-call.png')
 
 
     // iconEmergency = require('@Asset/icons/emergency.png')
@@ -26,7 +27,7 @@ if (Platform.OS == "android") {
 } else {
     // iconHome = require('@Asset/icons/ios-home.png')
     iconHome = require('@Asset/icons/home.png')
-    iconStatus = require('@Asset/icons/status.png')
+    iconStatus = require('@Asset/icons/emergency-call.png')
     // iconStatus = require('@Asset/icons/ios-status.png')
     // iconEmergency = require('@Asset/icons/ios-emergency.png')
     // iconInbox = require('@Asset/icons/ios-notif.png')
@@ -92,7 +93,10 @@ export const goHome = () => Navigation.setRoot({
                             iconColor: iconColor,
                             textColor: iconColor,
                             selectedIconColor: selectedColor,
-                            selectedTextColor: selectedColor
+                            selectedTextColor: selectedColor,
+                            iconWidth: 45,
+                            iconHeight: 45
+
                         }
                     }
                 }
@@ -114,7 +118,7 @@ export const goHome = () => Navigation.setRoot({
                     options: {
                         bottomTab: {
                             text: 'Profile',
-                            icon: iconEmergency,
+                            icon: iconProfile,
                             iconInsets: { bottom: -5 },
                             iconColor: iconColor,
                             textColor: iconColor,

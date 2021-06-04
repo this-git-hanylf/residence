@@ -5,7 +5,7 @@ import {
     Image,
     TouchableOpacity,
     ImageBackground,
-    ScrollView
+    ScrollView, Linking
 } from 'react-native';
 import { Modalize } from 'react-native-modalize';
 import CourseList from '../CourseList/CourseList';
@@ -119,41 +119,47 @@ export default class Cources extends React.Component {
                     <View style={{ flex: 1 }}>
                         <ScrollView style={{ marginTop: 40 }}>
                             <CourseList
-                                // onPress={() => this.props.navigation.navigate("Xd")}s
+                                // onPress={() => this.props.navigation.navigate("Xd")}
+
                                 img={require('@Asset/images/new/emergencycall/fireman.png')}
                                 title="Firefighter"
                                 bg="#fdddf3"
+                                call={() => Linking.openURL(`tel:082`)}
                             />
                             <CourseList
-                                img={require('@Asset/images/sketch.png')}
-                                title="Sketch shortcuts and tricks"
+                                img={require('@Asset/images/new/emergencycall/ambulance.png')}
+                                title="Ambulance"
                                 bg="#fef8e3"
+                                call={() => Linking.openURL(`tel:082`)}
                             />
                             <CourseList
-                                img={require('@Asset/images/ae.png')}
-                                title="UI Motion Design in After Effects"
+                                img={require('@Asset/images/new/emergencycall/police.png')}
+                                title="Police"
                                 bg="#fcf2ff"
+                                call={() => Linking.openURL(`tel:082`)}
                             />
                             <CourseList
-                                img={require('@Asset/images/f.png')}
-                                title="Figma Essentials"
+                                img={require('@Asset/images/new/emergencycall/heavy-rain.png')}
+                                title="Natural Disasters Post"
                                 bg="#fff0ee"
+                                call={() => Linking.openURL(`tel:082`)}
                             />
                             <CourseList
-                                img={require('@Asset/images/ps.png')}
-                                title="Adobe Photoshop. Retouching"
+                                img={require('@Asset/images/new/emergencycall/electrical-energy.png')}
+                                title="Electrical Engineering"
                                 bg="#fdddf3"
+                                call={() => Linking.openURL(`tel:082`)}
                             />
                             <CourseList
-                                img={require('@Asset/images/sketch.png')}
-                                title="Sketch shortcuts and tricks"
+                                img={require('@Asset/images/new/emergencycall/support.png')}
+                                title="Suicide Prevention"
                                 bg="#fef8e3"
                             />
-                            <CourseList
+                            {/* <CourseList
                                 img={require('@Asset/images/ae.png')}
                                 title="UI Motion Design in After Effects"
                                 bg="#fcf2ff"
-                            />
+                            /> */}
                         </ScrollView>
                     </View>
 

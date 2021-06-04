@@ -196,6 +196,7 @@ const styles = StyleSheet.create({
     image: {
         height: 230,
         resizeMode: 'stretch',
+
     },
     indicatorContainerStyle: {
         marginTop: 18,
