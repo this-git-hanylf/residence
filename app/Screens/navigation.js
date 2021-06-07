@@ -1,7 +1,8 @@
 import { Navigation } from 'react-native-navigation'
 import { Platform } from 'react-native';
-const selectedColor = '#aa8976';
-const iconColor = '#70af85';
+import colors from '../Theme/Colors';
+const selectedColor = colors.bg_coklat;
+const iconColor = colors.bg_hijaugelap;;
 const iconWidth = 40;
 
 

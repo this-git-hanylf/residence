@@ -25,43 +25,58 @@ export default class NewsList extends React.Component {
                     alignItems: "center",
                     justifyContent: 'center',
                     // marginTop: 5,
-                    margin: 5,
+                    // margin: 5,
                     // width: vw / numColumns,
                     height: vw / numColumns,
                     // height: vh / numColumns,
 
                     // flexWrap: "wrap",
-                    flex: 1
+                    flex: 1,
+
+                    // -- create shadow
+                    shadowColor: "#000",
+                    shadowOffset: {
+                        width: 0,
+                        height: 1,
+                    },
+                    shadowOpacity: 0.22,
+                    shadowRadius: 2.22,
+                    elevation: 3,
+                    // -- end create shadow
                 }}
             >
                 <Image
                     source={img}
-                    style={{ resizeMode: 'cover', flex: 1, width: 200, height: 300, borderTopLeftRadius: 20, borderTopRightRadius: 20, }}
+                    style={{ resizeMode: 'cover', flex: 1, width: 190, height: 300, borderTopLeftRadius: 20, borderTopRightRadius: 20, }}
                 />
-                <Text style={{
-                    color: colorTextTitle,
-                    fontFamily: "Bold",
-                    fontWeight: 'bold',
-                    fontSize: 16,
-                    // paddingHorizontal: 10,
-                    textAlign: 'left',
-                    width: 170,
-                    paddingTop: 5,
+                <View style={{ width: 190 }}>
+                    <Text style={{
+                        color: colorTextTitle,
+                        fontFamily: "Bold",
+                        fontWeight: 'bold',
+                        fontSize: 16,
+                        paddingHorizontal: 5,
+                        textAlign: 'left',
+                        // width: 190,
+                        paddingTop: 5,
 
-                    // flex: 
+                        // flex: 
 
-                }}>{title}</Text>
-                <Text ellipsizeMode='tail' numberOfLines={2} style={{
-                    color: colorTextDesc,
-                    fontFamily: "Medium",
-                    fontSize: 12,
-                    paddingHorizontal: 15,
-                    // width: 170,
-                    // paddingBottom: 20
-                    marginBottom: 10
-                }}>
-                    {desc}
-                </Text>
+                    }}>{title}</Text>
+                    <Text ellipsizeMode='tail' numberOfLines={2} style={{
+                        color: colorTextDesc,
+                        fontFamily: "Medium",
+                        fontSize: 12,
+                        paddingHorizontal: 5,
+                        // width: 190,
+                        // paddingBottom: 20
+                        marginBottom: 10
+                    }}>
+                        {desc}
+                    </Text>
+
+                </View>
+
 
 
                 {/* <ProgressCircle

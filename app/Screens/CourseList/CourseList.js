@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, TouchableOpacity, View, Image, Linking } from 'react-native'
 // import ProgressCircle from 'react-native-progress-circle'
 import Icon from 'react-native-vector-icons/Ionicons';
+import colors from '../../Theme/Colors';
 
 
 export default class CourseList extends React.Component {
@@ -27,7 +28,7 @@ export default class CourseList extends React.Component {
 
                 <View style={{ width: '80%' }}>
                     <Text style={{
-                        color: "#345c74",
+                        color: colors.bg_abuabu,
                         fontFamily: "Bold",
                         fontSize: 16,
                         paddingHorizontal: 20,

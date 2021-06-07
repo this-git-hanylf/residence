@@ -8,6 +8,7 @@ import {
     ScrollView, Linking
 } from 'react-native';
 import { Modalize } from 'react-native-modalize';
+import colors from '../../Theme/Colors';
 import CourseList from '../CourseList/CourseList';
 // const modalizeRef = useRef(null);
 
@@ -48,7 +49,7 @@ export default class Cources extends React.Component {
         return (
             <ImageBackground
                 // source={require('@Asset/images/cat.png')}
-                style={{ width: "100%", height: "100%", backgroundColor: '#8bbcdb' }}
+                style={{ width: "100%", height: "100%", backgroundColor: colors.bg_peach }}
             >
                 {/* <View style={{
                     flexDirection: "row",
@@ -85,7 +86,7 @@ export default class Cources extends React.Component {
                     </View>
                 </View> */}
                 <Text style={{
-                    color: "#FFF",
+                    color: colors.bg_abuabu,
                     fontSize: 35,
                     fontFamily: "Bold",
                     width: 200,
@@ -104,12 +105,13 @@ export default class Cources extends React.Component {
                 <Modalize
                     handleStyle={{
                         marginTop: 30,
-                        backgroundColor: "#e9e9e9",
+                        backgroundColor: colors.bg_hijautua,
                         width: 80
                     }}
                     modalStyle={{
                         borderTopLeftRadius: 60,
-                        borderTopRightRadius: 60
+                        borderTopRightRadius: 60,
+                        backgroundColor: colors.bg_putih
                     }}
                     alwaysOpen={200}
                     scrollViewProps={{ showsVerticalScrollIndicator: false }}
@@ -120,40 +122,39 @@ export default class Cources extends React.Component {
                         <ScrollView style={{ marginTop: 40 }}>
                             <CourseList
                                 // onPress={() => this.props.navigation.navigate("Xd")}
-
                                 img={require('@Asset/images/new/emergencycall/fireman.png')}
                                 title="Firefighter"
-                                bg="#fdddf3"
+                                bg={colors.bg_peach}
                                 call={() => Linking.openURL(`tel:082`)}
                             />
                             <CourseList
                                 img={require('@Asset/images/new/emergencycall/ambulance.png')}
                                 title="Ambulance"
-                                bg="#fef8e3"
+                                bg={colors.bg_hijautua}
                                 call={() => Linking.openURL(`tel:082`)}
                             />
                             <CourseList
                                 img={require('@Asset/images/new/emergencycall/police.png')}
                                 title="Police"
-                                bg="#fcf2ff"
+                                bg={colors.bg_peach}
                                 call={() => Linking.openURL(`tel:082`)}
                             />
                             <CourseList
                                 img={require('@Asset/images/new/emergencycall/heavy-rain.png')}
                                 title="Natural Disasters Post"
-                                bg="#fff0ee"
+                                bg={colors.bg_hijautua}
                                 call={() => Linking.openURL(`tel:082`)}
                             />
                             <CourseList
                                 img={require('@Asset/images/new/emergencycall/electrical-energy.png')}
                                 title="Electrical Engineering"
-                                bg="#fdddf3"
+                                bg={colors.bg_peach}
                                 call={() => Linking.openURL(`tel:082`)}
                             />
                             <CourseList
                                 img={require('@Asset/images/new/emergencycall/support.png')}
                                 title="Suicide Prevention"
-                                bg="#fef8e3"
+                                bg={colors.bg_hijautua}
                             />
                             {/* <CourseList
                                 img={require('@Asset/images/ae.png')}
