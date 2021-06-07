@@ -703,6 +703,53 @@ export default class Home extends React.Component {
 
                     {/* --------- END ANNOUNCEMENT ------- */}
 
+                    {/* -------- PROMOTIONS -------- */}
+
+                    <View style={{ paddingLeft: 10, paddingTop: 15 }}>
+                        <Text style={{
+                            color: colors.bg_abuabu,
+                            fontSize: 16,
+                            fontFamily: "Bold",
+                            textAlign: 'left',
+                            width: '100%',
+                            fontWeight: 'bold',
+                            textTransform: 'uppercase'
+                        }}>
+                            Promotions
+                        </Text>
+                    </View>
+                    {/* ----- tampilan awal promo, list seperti biasa  */}
+                    <View style={{ paddingBottom: 10 }}>
+                        {this.state.datapromo.map((item, index) => (
+                            <PromoList key={index}
+                                img={{ uri: item.image }}
+                                title={item.judul}
+                                // bg={index % 2 === 0 ? "#fdddf3" : "#fef8e3"} //jika index  genap, maka warna krem. else ganjil warna pink
+                                bg={colors.bg_putih}
+                                datepost={moment(item.date).format('ll')}
+                            />
+                        ))}
+                    </View>
+                    {/* -----  tutup tampilan awal promo, list seperti biasa  */}
+                    <TouchableOpacity style={{ marginBottom: 10 }}>
+                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: 'flex-end', paddingRight: 10, paddingTop: 5 }}>
+                            <Text style={{ color: colors.bg_abuabu, fontWeight: 'bold' }}>more promo</Text>
+                            <IconFA name="chevron-right" style={{ fontSize: 16, paddingTop: 5, paddingLeft: 8, color: colors.bg_abuabu }}></IconFA>
+                        </View>
+                    </TouchableOpacity>
+                    {/* <FlatListSlider
+                        data={this.state.promo}
+                        width={300}
+                        timer={4000}
+                        component={<Preview />}
+                        onPress={item => alert(JSON.stringify(item))}
+                        indicatorActiveWidth={30}
+                        contentContainerStyle={styles.contentStyle}
+                        indicatorStyle={{ marginTop: 0 }}
+                    /> */}
+
+                    {/* -------- END PROMOTIONS -------- */}
+
                     {/* -------- NEWS N PROMOTION -------- */}
                     <View style={{ paddingLeft: 10, paddingTop: 15 }}>
                         <Text style={{
@@ -765,53 +812,6 @@ export default class Home extends React.Component {
                     </TouchableOpacity>
 
                     {/* -------- END NEWS -------- */}
-
-                    {/* -------- PROMOTIONS -------- */}
-
-                    <View style={{ paddingLeft: 10, paddingTop: 15 }}>
-                        <Text style={{
-                            color: colors.bg_abuabu,
-                            fontSize: 16,
-                            fontFamily: "Bold",
-                            textAlign: 'left',
-                            width: '100%',
-                            fontWeight: 'bold',
-                            textTransform: 'uppercase'
-                        }}>
-                            Promotions
-                        </Text>
-                    </View>
-                    {/* ----- tampilan awal promo, list seperti biasa  */}
-                    <View style={{ paddingBottom: 10 }}>
-                        {this.state.datapromo.map((item, index) => (
-                            <PromoList key={index}
-                                img={{ uri: item.image }}
-                                title={item.judul}
-                                // bg={index % 2 === 0 ? "#fdddf3" : "#fef8e3"} //jika index  genap, maka warna krem. else ganjil warna pink
-                                bg={colors.bg_putih}
-                                datepost={moment(item.date).format('ll')}
-                            />
-                        ))}
-                    </View>
-                    {/* -----  tutup tampilan awal promo, list seperti biasa  */}
-                    <TouchableOpacity style={{ marginBottom: 10 }}>
-                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: 'flex-end', paddingRight: 10, paddingTop: 5 }}>
-                            <Text style={{ color: colors.bg_abuabu, fontWeight: 'bold' }}>more promo</Text>
-                            <IconFA name="chevron-right" style={{ fontSize: 16, paddingTop: 5, paddingLeft: 8, color: colors.bg_abuabu }}></IconFA>
-                        </View>
-                    </TouchableOpacity>
-                    {/* <FlatListSlider
-                        data={this.state.promo}
-                        width={300}
-                        timer={4000}
-                        component={<Preview />}
-                        onPress={item => alert(JSON.stringify(item))}
-                        indicatorActiveWidth={30}
-                        contentContainerStyle={styles.contentStyle}
-                        indicatorStyle={{ marginTop: 0 }}
-                    /> */}
-
-                    {/* -------- END PROMOTIONS -------- */}
                 </ScrollView>
             </ImageBackground>
 

@@ -8,10 +8,11 @@ import {
     Alert,
     Modal,
     ScrollView,
+    Dimensions
 } from 'react-native';
 import nbStyle from './Style';
 import { goToAuth } from '../navigation';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { Navigation } from 'react-native-navigation';
 import DeviceInfo from 'react-native-device-info';
 // import email from 'react-native-email';
@@ -22,8 +23,11 @@ import OfflineNotice from "@Component/OfflineNotice";
 import { urlApi } from "@Config";
 import { sessions, nav } from "../../_helpers";
 // import { authService } from '../../_services';
+import colors from "../../Theme/Colors";
+import { Container } from "native-base";
+import FlatListMenu from '../../components/FlatListMenu/FlatListMenu';
 
-
+const vw = Dimensions.get('window').width;
 class Profile extends Component {
     static options(passProps) {
         return {
@@ -50,10 +54,16 @@ class Profile extends Component {
             token: "",
             userId: "",
 
-            fotoProfil: require("@Asset/icons/profile.png"),
+            fotoProfildefault: require("@Asset/icons/profile.png"),
 
             dataProfile: [],
-            modalVisible: false
+            modalVisible: false,
+            dataMenu: [
+                { id: '1', menu: 'info personal' },
+                { id: '2', menu: 'help' },
+                { id: '3', menu: 'about us' },
+                { id: '4', menu: 'sign out' },
+            ]
         };
         Navigation.events().bindComponent(this);
     }
@@ -215,83 +225,134 @@ class Profile extends Component {
 
     render() {
         let { fotoProfil } = this.state;
+        console.log('data menu', this.state.dataMenu);
         return (
-            <ScrollView>
+            <ImageBackground style={{
+                width: "100%", height: "100%", backgroundColor: colors.bg_hijautua
+            }}>
                 {this.state.isLogin == true ?
-                    <View style={{ backgroundColor: 'blue' }}>
-                        <View style={{
-                            justifyContent: "center",
-                            alignItems: "center"
-                        }}>
-                            <Image source={fotoProfil}
-                                style={{
-                                    borderRadius: 40,
-                                    width: 80,
-                                    height: 80,
-                                }}
-
-                            />
+                    <View>
+                        <View style={{ top: '5%' }}>
+                            <Text style={{ color: colors.bg_putih, fontSize: 20, textAlign: 'center' }}>Profile</Text>
                         </View>
-                        {/* <View style={{ flexDirection: 'row', width: '100%', alignContent: 'center', alignItems: 'center' }}> */}
 
-                        {/* <View style={{
-
-                                alignItems: "flex-end",
-
-                                paddingHorizontal: 20
+                        <View style={{ backgroundColor: colors.bg_putih, borderTopLeftRadius: 60, borderTopRightRadius: 60, top: '10%', height: '100%' }}>
+                            {/* ----- image foto profil ------ */}
+                            <View style={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                                marginTop: 20
                             }}>
-
-                                <Image
-                                    source={fotoProfil}
+                                <Image source={fotoProfil}
                                     style={{
-                                        height: 80,
+                                        borderRadius: 40,
                                         width: 80,
-                                        paddingHorizontal: 10,
-                                        paddingVertical: 10,
-                                        borderRadius: 50,
-                                        marginTop: 30,
+                                        height: 80,
+
                                     }}
                                 />
-                       
+
+                            </View>
+                            {/* ----- end image foto profil ------ */}
+
+                            {/* ------ content profil -------  */}
+                            <View style={{ marginTop: 10, justifyContent: 'center', alignItems: 'center', marginBottom: 20 }}>
+                                <Text style={{ fontSize: 18, color: colors.bg_abuabu }}>
+                                    {this.state.username}
+                                </Text>
+                                <Text style={{ fontSize: 14, color: colors.bg_hijaugelap }}>
+                                    {this.state.email}
+                                </Text>
+                            </View>
+
+
+                            {/* ----- menu profil ---- */}
+                            {this.state.dataMenu.map((item, index) => (
+                                // <View key={index}>
+                                <FlatListMenu
+                                    key={index}
+                                    onPress={() => this.btnLogout()}
+                                    bg={colors.bg_putih}
+                                    menu_name={item.menu}
+                                    borderColor={colors.bg_coklat}
+                                >
+                                </FlatListMenu>
+                                // </View>
+                            )
+                            )}
+                            {/* ----- end menu profil ---- */}
+
+
+                            {/* ------ end content profil -------  */}
+
+                            {/* ------ button logout ------ */}
+                            {/* <View style={{ alignItems: 'center', marginTop: 20 }}>
+                                <TouchableOpacity
+                                    style={{ backgroundColor: colors.bg_putih, borderColor: colors.bg_coklat, borderWidth: 1, padding: 10, borderRadius: 10, width: 100 }}
+                                    // onPress={() => this.btnLogout()}
+                                    // onPress={() => this.handleNavigation(
+                                    //     "screen.Login"
+
+                                    // )}
+                                    // onPress={() => nav.push(this.props.componentId, "screen.Login")}
+                                    onPress={() => this.btnLogout()}
+                                >
+                                    <Text style={{ color: colors.bg_coklat, textAlign: 'center' }}>
+                                        Sign out
+                                    </Text>
+                                </TouchableOpacity>
                             </View> */}
 
-                        {/* </View> */}
-                        {/* <OfflineNotice /> */}
-                        <TouchableOpacity
-                            style={nbStyle.btnYes}
-                            // onPress={() => this.btnLogout()}
-                            // onPress={() => this.handleNavigation(
-                            //     "screen.Login"
+                            {/* ------ end button logout ------ */}
+                        </View>
 
-                            // )}
-                            // onPress={() => nav.push(this.props.componentId, "screen.Login")}
-                            onPress={() => this.btnLogout()}
-                        >
-                            <Text style={nbStyle.textYes}>
-                                logoout
-                    </Text>
-                        </TouchableOpacity>
-                        <Text>ini profile</Text>
                     </View>
+
                     :
                     <View>
-                        {/* <OfflineNotice /> */}
-                        <TouchableOpacity
-                            style={nbStyle.btnYes}
-                            // onPress={() => this.btnLogout()}
-                            // onPress={() => this.handleNavigation(
-                            //     "screen.Login"
+                        <View style={{ top: '5%' }}>
+                            <Text style={{ color: colors.bg_abuabu, fontSize: 18, textAlign: 'center' }}>Profile</Text>
+                        </View>
 
-                            // )}
-                            onPress={() => nav.push(this.props.componentId, "screen.Login")}
-                        >
-                            <Text style={nbStyle.textYes}>
-                                logins
-                    </Text>
-                        </TouchableOpacity>
-                        <Text>ini profile</Text>
-                    </View>}
-            </ScrollView>
+                        <View style={{ backgroundColor: colors.bg_putih, borderTopLeftRadius: 60, borderTopRightRadius: 60, top: '10%', height: '100%' }}>
+                            <View style={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}>
+                                <Image source={fotoProfil}
+                                    style={{
+                                        borderRadius: 40,
+                                        width: 80,
+                                        height: 80,
+
+                                    }}
+                                />
+                            </View>
+                            <TouchableOpacity
+                                style={nbStyle.btnYes}
+                                // onPress={() => this.btnLogout()}
+                                // onPress={() => this.handleNavigation(
+                                //     "screen.Login"
+
+                                // )}
+                                // onPress={() => nav.push(this.props.componentId, "screen.Login")}
+                                onPress={() => nav.push(this.props.componentId, "screen.Login")}
+                            >
+                                <Text style={nbStyle.textYes}>
+                                    login
+                        </Text>
+                            </TouchableOpacity>
+
+                        </View>
+
+                    </View>
+
+                }
+
+
+
+
+            </ImageBackground>
 
 
         )
