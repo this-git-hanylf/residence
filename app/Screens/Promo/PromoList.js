@@ -43,7 +43,7 @@ export default class PromoList extends React.Component {
                 <View style={{ width: '80%' }}>
                     <Text style={{
                         color: colors.bg_abuabu,
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         fontSize: 16,
                         paddingHorizontal: 20,
                         width: 200,
@@ -55,7 +55,7 @@ export default class PromoList extends React.Component {
                     }}>{title}</Text>
                     <Text style={{
                         color: colors.bg_abuabu,
-                        fontFamily: "Medium",
+                        //fontFamily: "Medium",
                         fontSize: 13,
                         paddingHorizontal: 20,
                     }}>
@@ -65,7 +65,7 @@ export default class PromoList extends React.Component {
 
                 {/* <Text style={{
                     color: "#345c74",
-                    fontFamily: "Medium",
+                    //fontFamily: "Medium",
                     fontSize: 13,
                     paddingLeft: 10,
                     paddingRight: 10

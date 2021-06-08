@@ -88,7 +88,7 @@ export default class Cources extends React.Component {
                 <Text style={{
                     color: colors.bg_abuabu,
                     fontSize: 35,
-                    fontFamily: "Bold",
+                    //fontFamily: "Montserrat-SemiBold",
                     width: 200,
                     alignSelf: "center",
                     textAlign: "center",

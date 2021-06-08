@@ -317,7 +317,7 @@ export default class Home extends React.Component {
                                 paddingHorizontal: 15,
                                 fontSize: 20,
                                 paddingTop: 20,
-                                fontFamily: "Bold",
+                                //fontFamily: "Montserrat-SemiBold",
 
                                 color: "#fff"
                             }}>
@@ -327,7 +327,7 @@ export default class Home extends React.Component {
                                 paddingHorizontal: 15,
                                 fontSize: 20,
                                 marginBottom: 20,
-                                fontFamily: "Bold",
+                                //fontFamily: "Montserrat-SemiBold",
 
                                 color: "#fff"
                             }}>
@@ -336,7 +336,7 @@ export default class Home extends React.Component {
                                     fontSize: 20,
                                     paddingTop: 20,
                                     marginBottom: 20,
-                                    fontFamily: "Bold",
+                                    //fontFamily: "Montserrat-SemiBold",
 
                                     color: "#fff"
                                 }}>Friends</Text>}
@@ -396,7 +396,7 @@ export default class Home extends React.Component {
                                         <Text style={{
                                             color: colors.bg_abuabu,
                                             fontSize: 13,
-                                            fontFamily: "Bold",
+                                            //fontFamily: "Montserrat-SemiBold",
                                             fontWeight: "bold"
                                         }}>
                                             INVOICE
@@ -405,7 +405,7 @@ export default class Home extends React.Component {
                                             <Text style={{
                                                 color: colors.bg_abuabu,
                                                 fontSize: 15,
-                                                fontFamily: "Bold",
+                                                //fontFamily: "Montserrat-SemiBold",
                                                 textAlign: 'left',
                                                 fontWeight: "bold"
                                             }}>
@@ -414,7 +414,7 @@ export default class Home extends React.Component {
                                             <Text style={{
                                                 color: colors.bg_abuabu,
                                                 fontSize: 15,
-                                                fontFamily: "Bold",
+                                                //fontFamily: "Montserrat-SemiBold",
                                                 fontWeight: "bold"
                                                 // textAlign: 'right',
                                                 // flex: 1
@@ -436,7 +436,7 @@ export default class Home extends React.Component {
                                         <Text style={{
                                             color: colors.bg_abuabu,
                                             fontSize: 13,
-                                            fontFamily: "Bold",
+                                            //fontFamily: "Montserrat-SemiBold",
                                             fontWeight: "bold"
                                         }}>
                                             TOTAL
@@ -444,7 +444,7 @@ export default class Home extends React.Component {
                                         <Text style={{
                                             color: colors.bg_abuabu,
                                             fontSize: 15,
-                                            fontFamily: "Bold",
+                                            //fontFamily: "Montserrat-SemiBold",
                                             textAlign: 'left',
                                             fontWeight: "bold"
                                         }}>
@@ -505,7 +505,7 @@ export default class Home extends React.Component {
                                     <Text style={{
                                         color: colors.bg_abuabu,
                                         fontSize: 16,
-                                        fontFamily: "Bold",
+                                        //fontFamily: "Montserrat-SemiBold",
                                         paddingLeft: 5,
                                     }}>
                                         Billing
@@ -558,7 +558,7 @@ export default class Home extends React.Component {
                                     <Text style={{
                                         color: colors.bg_abuabu,
                                         fontSize: 15,
-                                        fontFamily: "Bold",
+                                        //fontFamily: "Montserrat-SemiBold",
                                         paddingLeft: 5,
 
                                     }}>
@@ -608,7 +608,7 @@ export default class Home extends React.Component {
                                     <Text style={{
                                         color: colors.bg_abuabu,
                                         fontSize: 15,
-                                        fontFamily: "Bold",
+                                        //fontFamily: "Montserrat-SemiBold",
                                         paddingLeft: 5,
                                     }}>
                                         Amenities
@@ -625,7 +625,7 @@ export default class Home extends React.Component {
                         <Text style={{
                             color: colors.bg_abuabu,
                             fontSize: 16,
-                            fontFamily: "Bold",
+                            //fontFamily: "Montserrat-SemiBold",
                             textAlign: 'left',
                             width: '100%',
                             fontWeight: 'bold',
@@ -675,7 +675,7 @@ export default class Home extends React.Component {
                                         <Text style={{
                                             color: colors.bg_abuabu,
                                             fontSize: 16,
-                                            fontFamily: "Bold",
+                                            //fontFamily: "Montserrat-SemiBold",
                                             textAlign: 'center',
                                             width: '100%',
                                             fontWeight: 'bold'
@@ -689,7 +689,7 @@ export default class Home extends React.Component {
                                         <Text style={{
                                             color: colors.bg_abuabu,
                                             fontSize: 14,
-                                            fontFamily: "Bold",
+                                            //fontFamily: "Montserrat-SemiBold",
                                             textAlign: 'center',
                                             width: '100%'
                                         }}>
@@ -709,7 +709,7 @@ export default class Home extends React.Component {
                         <Text style={{
                             color: colors.bg_abuabu,
                             fontSize: 16,
-                            fontFamily: "Bold",
+                            //fontFamily: "Montserrat-SemiBold",
                             textAlign: 'left',
                             width: '100%',
                             fontWeight: 'bold',
@@ -755,7 +755,7 @@ export default class Home extends React.Component {
                         <Text style={{
                             color: colors.bg_abuabu,
                             fontSize: 16,
-                            fontFamily: "Bold",
+                            //fontFamily: "Montserrat-SemiBold",
                             textAlign: 'left',
                             width: '100%',
                             fontWeight: 'bold',

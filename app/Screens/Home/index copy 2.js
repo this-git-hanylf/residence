@@ -125,7 +125,7 @@ export default class Home extends React.Component {
                         paddingHorizontal: 15,
                         fontSize: 20,
                         paddingTop: 20,
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         // alignItems: "flex-start",
                         color: "#FFF"
                     }}>
@@ -175,7 +175,7 @@ export default class Home extends React.Component {
                             <Text style={{
                                 color: "#345c74",
                                 fontSize: 20,
-                                fontFamily: "Bold",
+                                //fontFamily: "Montserrat-SemiBold",
                                 // width: 250,
                                 paddingRight: 50
                             }}>
@@ -200,7 +200,7 @@ export default class Home extends React.Component {
                             >
                                 <Text style={{
                                     color: "#FFF",
-                                    fontFamily: "Bold",
+                                    //fontFamily: "Montserrat-SemiBold",
                                     fontSize: 12
                                 }}>Categories</Text>
                                 <Image
@@ -213,7 +213,7 @@ export default class Home extends React.Component {
                             <Text style={{
                                 color: "#345c74",
                                 fontSize: 20,
-                                fontFamily: "Bold",
+                                //fontFamily: "Montserrat-SemiBold",
                                 // width: 250,
                                 paddingRight: 100
                             }}>
@@ -238,7 +238,7 @@ export default class Home extends React.Component {
                             >
                                 <Text style={{
                                     color: "#FFF",
-                                    fontFamily: "Bold",
+                                    //fontFamily: "Montserrat-SemiBold",
                                     fontSize: 12
                                 }}>Categories</Text>
                                 <Image
@@ -255,7 +255,7 @@ export default class Home extends React.Component {
                     </View>
                     <Text style={{
                         color: "#345c74",
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         fontSize: 20,
                         paddingHorizontal: 20,
                         marginTop: 20,
@@ -279,7 +279,7 @@ export default class Home extends React.Component {
                     />
                     <Text style={{
                         color: "#345c74",
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         fontSize: 20,
                         paddingHorizontal: 20,
                         marginTop: 20,
@@ -303,7 +303,7 @@ export default class Home extends React.Component {
                     />
                     <Text style={{
                         color: "#345c74",
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         fontSize: 20,
                         paddingHorizontal: 20,
                         marginTop: 20,

@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     loadingText: {
-        fontFamily: "Montserrat-SemiBold",
+        //fontFamily: "Montserrat-SemiBold",
         fontSize: 17,
         fontWeight: "300"
     }

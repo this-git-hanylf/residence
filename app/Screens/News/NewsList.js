@@ -52,7 +52,7 @@ export default class NewsList extends React.Component {
                 <View style={{ width: 190 }}>
                     <Text style={{
                         color: colorTextTitle,
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         fontWeight: 'bold',
                         fontSize: 16,
                         paddingHorizontal: 5,
@@ -65,7 +65,7 @@ export default class NewsList extends React.Component {
                     }}>{title}</Text>
                     <Text ellipsizeMode='tail' numberOfLines={2} style={{
                         color: colorTextDesc,
-                        fontFamily: "Medium",
+                        //fontFamily: "Medium",
                         fontSize: 12,
                         paddingHorizontal: 5,
                         // width: 190,

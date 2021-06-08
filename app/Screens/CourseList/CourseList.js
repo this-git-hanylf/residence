@@ -29,7 +29,7 @@ export default class CourseList extends React.Component {
                 <View style={{ width: '80%' }}>
                     <Text style={{
                         color: colors.bg_abuabu,
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         fontSize: 16,
                         paddingHorizontal: 20,
                         width: 200,

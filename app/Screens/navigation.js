@@ -27,12 +27,12 @@ if (Platform.OS == "android") {
     iconProfile = require('@Asset/icons/profile.png')
 } else {
     // iconHome = require('@Asset/icons/ios-home.png')
-    iconHome = require('@Asset/icons/home.png')
-    iconStatus = require('@Asset/icons/emergency-call.png')
+    iconHome = require('@Asset/icons/home-ios.png')
+    iconStatus = require('@Asset/icons/emergency-call-ios.png')
     // iconStatus = require('@Asset/icons/ios-status.png')
     // iconEmergency = require('@Asset/icons/ios-emergency.png')
     // iconInbox = require('@Asset/icons/ios-notif.png')
-    iconProfile = require('@Asset/icons/ios-profile.png')
+    iconProfile = require('@Asset/icons/profile-ios.png')
 }
 
 
@@ -68,6 +68,8 @@ export const goHome = () => Navigation.setRoot({
                             textColor: iconColor,
                             selectedIconColor: selectedColor,
                             selectedTextColor: selectedColor,
+                            iconWidth: 45,
+                            iconHeight: 45
 
                         }
                     }
@@ -124,7 +126,9 @@ export const goHome = () => Navigation.setRoot({
                             iconColor: iconColor,
                             textColor: iconColor,
                             selectedIconColor: selectedColor,
-                            selectedTextColor: selectedColor
+                            selectedTextColor: selectedColor,
+                            iconWidth: 45,
+                            iconHeight: 45
                         }
                     }
                 }
@@ -222,16 +226,16 @@ export const goToAuth = () => Navigation.setRoot({
                         component: {
                             name: 'tab.Home',
                             options: {
-                                // topBar:{
-                                //   visible:false,
+                                topBar:{
+                                  visible:false,
                                 //   height:0
-                                // },
+                                },
 
-                                animations: {
-                                    push: {
-                                        enabled: "false",
-                                    }
-                                }
+                                // animations: {
+                                //     push: {
+                                //         enabled: "false",
+                                //     }
+                                // }
                             }
                         }
                     }],
@@ -244,6 +248,8 @@ export const goToAuth = () => Navigation.setRoot({
                             textColor: iconColor,
                             selectedIconColor: selectedColor,
                             selectedTextColor: selectedColor,
+                            iconWidth: 45,
+                            iconHeight: 45
 
                         }
                     }
@@ -272,7 +278,9 @@ export const goToAuth = () => Navigation.setRoot({
                             iconColor: iconColor,
                             textColor: iconColor,
                             selectedIconColor: selectedColor,
-                            selectedTextColor: selectedColor
+                            selectedTextColor: selectedColor,
+                            iconWidth: 45,
+                            iconHeight: 45
                         }
                     }
                 }

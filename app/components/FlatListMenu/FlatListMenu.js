@@ -24,7 +24,7 @@ export default class FlatListMenu extends React.Component {
                 <View style={{ width: '95%' }}>
                     <Text style={{
                         color: colors.bg_abuabu,
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         fontSize: 16,
                         paddingHorizontal: 10,
                         width: '100%',

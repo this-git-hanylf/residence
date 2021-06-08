@@ -316,7 +316,7 @@ export default class Home extends React.Component {
                         fontSize: 20,
                         paddingTop: 20,
                         marginBottom: 20,
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         // alignItems: "flex-start",
                         color: "#000"
                     }}>
@@ -325,7 +325,7 @@ export default class Home extends React.Component {
                             fontSize: 20,
                             paddingTop: 20,
                             marginBottom: 20,
-                            fontFamily: "Bold",
+                            //fontFamily: "Montserrat-SemiBold",
                             // alignItems: "flex-start",
                             color: "#000"
                         }}>Friends</Text>}
@@ -357,7 +357,7 @@ export default class Home extends React.Component {
                             placeholder="Search for new knowledge!"
                             placeholderTextColor="#345c74"
                             style={{
-                                fontFamily: "Bold",
+                                //fontFamily: "Montserrat-SemiBold",
                                 fontSize: 12,
                                 width: 280,
                                 paddingHorizontal: 12
@@ -400,7 +400,7 @@ export default class Home extends React.Component {
                                 <Text style={{
                                     color: "#000",
                                     fontSize: 16,
-                                    fontFamily: "Bold",
+                                    //fontFamily: "Montserrat-SemiBold",
                                     paddingRight: 50
                                 }}>
                                     <Icon name="receipt-outline" style={{ fontSize: 18 }}></Icon> Invoice
@@ -451,7 +451,7 @@ export default class Home extends React.Component {
                                 <Text style={{
                                     color: "#000",
                                     fontSize: 16,
-                                    fontFamily: "Bold",
+                                    //fontFamily: "Montserrat-SemiBold",
 
                                     paddingRight: 35,
 
@@ -536,7 +536,7 @@ export default class Home extends React.Component {
                                     <Text style={{
                                         color: "#000",
                                         fontSize: 16,
-                                        fontFamily: "Bold",
+                                        //fontFamily: "Montserrat-SemiBold",
                                     }}>
                                         Billing
                                     </Text>
@@ -580,7 +580,7 @@ export default class Home extends React.Component {
                                     <Text style={{
                                         color: "#000",
                                         fontSize: 16,
-                                        fontFamily: "Bold",
+                                        //fontFamily: "Montserrat-SemiBold",
 
                                     }}>
                                         Customer Services
@@ -624,7 +624,7 @@ export default class Home extends React.Component {
                                     <Text style={{
                                         color: "#000",
                                         fontSize: 16,
-                                        fontFamily: "Bold",
+                                        //fontFamily: "Montserrat-SemiBold",
 
                                     }}>
                                         Fasilitas
@@ -678,7 +678,7 @@ export default class Home extends React.Component {
                                         <Text style={{
                                             color: "#000",
                                             fontSize: 16,
-                                            fontFamily: "Bold",
+                                            //fontFamily: "Montserrat-SemiBold",
                                             textAlign: 'center',
                                             width: '100%',
                                             fontWeight: 'bold'
@@ -692,7 +692,7 @@ export default class Home extends React.Component {
                                         <Text style={{
                                             color: "#000",
                                             fontSize: 14,
-                                            fontFamily: "Bold",
+                                            //fontFamily: "Montserrat-SemiBold",
                                             textAlign: 'center',
                                             width: '100%'
                                         }}>
@@ -714,7 +714,7 @@ export default class Home extends React.Component {
                     {/* -------- NEWS N PROMOTION -------- */}
                     <Text style={{
                         color: "#345c74",
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         fontSize: 20,
                         paddingHorizontal: 20,
                         marginTop: 20,
@@ -724,7 +724,7 @@ export default class Home extends React.Component {
                     <View>
                         <Text style={{
                             color: "#345c74",
-                            fontFamily: "Bold",
+                            //fontFamily: "Montserrat-SemiBold",
                             fontSize: 20,
                             paddingHorizontal: 20,
                             // marginTop: 20,
@@ -765,7 +765,7 @@ export default class Home extends React.Component {
 
                     <Text style={{
                         color: "#345c74",
-                        fontFamily: "Bold",
+                        //fontFamily: "Montserrat-SemiBold",
                         fontSize: 20,
                         paddingHorizontal: 20,
                         marginTop: 20,
