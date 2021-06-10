@@ -28,6 +28,7 @@ import OfflineNotice from '@Component/OfflineNotice';
 import { _storeData, _getData } from '@Component/StoreAsync';
 import { authService, productService } from '../../_services';
 import { nav, sessions } from '../../_helpers';
+import colors from '../../Theme/Colors';
 
 
 
@@ -186,12 +187,12 @@ class Login extends Component {
     render() {
         return (
             <Container style={nbStyle.content}>
-                <ImageBackground style={{ width: '100%', height: '100%', backgroundColor: '#fceae5' }}>
+                <ImageBackground style={{ width: '100%', height: '100%', backgroundColor: colors.bg_peachmuda }}>
                     <OfflineNotice></OfflineNotice>
 
                     <SafeAreaView>
                         {/* ------- image header -------- */}
-                        <View style={[Style.LogoLeftTopWarp, { marginTop: 20, marginLeft: 30 }]}>
+                        <View style={{ marginTop: 20, marginLeft: 30 }}>
                             <Image style={{ height: 50, width: 100 }}
                                 source={require('@Asset/images/logo.png')}>
                             </Image>

@@ -19,6 +19,7 @@ import Profile from './Profile'
 
 //Initializing
 import Initializing from './Initializing';
+import Amenities from './Amenities';
 
 
 
@@ -35,5 +36,8 @@ export function registerScreen() {
 
     //Profile
     Navigation.registerComponent('tab.Profile', () => gestureHandlerRootHOC(Profile));
+
+    //amenities
+    // Navigation.registerComponent('screen.Amenities', () => gestureHandlerRootHOC(Amenities));
 
 }

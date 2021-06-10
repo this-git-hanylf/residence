@@ -1,3 +1,4 @@
+import colors from '../../Theme/Colors';
 export default {
     content: {
         width: "100%",
@@ -14,7 +15,7 @@ export default {
         marginTop: 5,
         width: "100%",
         backgroundColor: "#FFF",
-        borderRadius: 8,
+        borderRadius: 20,
         elevation: 10,
         shadowOffset: {
             width: 5,
@@ -52,7 +53,7 @@ export default {
         fontSize: 20,
         marginBottom: "8%",
         fontFamily: "Montserrat-SemiBold",
-        color: "#191919"
+        color: colors.bg_abuabu
     },
     subTitle: {
         textAlign: "center",
@@ -101,9 +102,9 @@ export default {
     },
     btnMedium: {
         width: "100%",
-        borderRadius: 8,
+        borderRadius: 20,
         paddingVertical: 20,
-        backgroundColor: "#41B649",
+        backgroundColor: colors.bg_iconbawah,
         paddingHorizontal: 5,
         alignItems: 'center',
         textAlign: "center",

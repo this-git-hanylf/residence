@@ -20,7 +20,7 @@ import Preview from '../../components/FlatListSlider/Preview';
 import FlatListSlider from '../../components/FlatListSlider/FlatListSlider';
 import moment from 'moment';
 import colors from '../../Theme/Colors';
-
+import { goAmenities } from '../Amenities/index';
 
 
 const data = [
@@ -291,6 +291,8 @@ export default class Home extends React.Component {
 
 
 
+
+
     renderHeader = () => {
         return (
             <View style={{ marginTop: 10, marginBottom: 10 }} onPress={() => console.log("aler")}></ View>
@@ -516,7 +518,7 @@ export default class Home extends React.Component {
                         </Col>
                         <Col style={{ height: 90, paddingLeft: 10, paddingRight: 10 }}>
                             <TouchableOpacity
-                                // // onPress={() => this.props.navigation.navigate('Cources')}
+                                // onPress={() => this.props.navigation.navigate('Cources')}
                                 // onPress={() => this.handleNavigation(
                                 //     "screen.Cources",
                                 //     // this.state.totalInvoiceDue
@@ -569,9 +571,9 @@ export default class Home extends React.Component {
                         </Col>
                         <Col style={{ height: 90, paddingLeft: 10, paddingRight: 10 }}>
                             <TouchableOpacity
-                                // // onPress={() => this.props.navigation.navigate('Cources')}
+                                onPress={() => goAmenities()}
                                 // onPress={() => this.handleNavigation(
-                                //     "screen.Cources",
+                                //     "screen.Amenities",
                                 //     // this.state.totalInvoiceDue
                                 // )}
                                 style={{
