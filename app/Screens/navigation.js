@@ -191,6 +191,7 @@ export const goHome = () => Navigation.setRoot({
                     fontSize: 10,
                     titleDisplayMode: 'alwaysShow',
                 }
+
             }
         }
     }

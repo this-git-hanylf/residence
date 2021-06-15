@@ -571,11 +571,14 @@ export default class Home extends React.Component {
                         </Col>
                         <Col style={{ height: 90, paddingLeft: 10, paddingRight: 10 }}>
                             <TouchableOpacity
-                                onPress={() => goAmenities()}
-                                // onPress={() => this.handleNavigation(
-                                //     "screen.Amenities",
-                                //     // this.state.totalInvoiceDue
-                                // )}
+
+                                // onPress={() =>
+                                //     Navigation.navigate('Amenities')
+                                // }
+                                onPress={() => user != null ? this.handleNavigation(
+                                    "screen.Amenities",
+                                    this.state.totalInvoiceDue
+                                ) : alert("please login")}
                                 style={{
                                     flexDirection: "row",
                                     backgroundColor: "#fff",

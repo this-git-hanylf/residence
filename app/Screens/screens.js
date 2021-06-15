@@ -24,6 +24,7 @@ import Amenities from './Amenities';
 
 
 
+
 //Registering Component Screen
 export function registerScreen() {
     Navigation.registerComponent('Initializing', () => gestureHandlerRootHOC(Initializing));
@@ -38,6 +39,8 @@ export function registerScreen() {
     Navigation.registerComponent('tab.Profile', () => gestureHandlerRootHOC(Profile));
 
     //amenities
-    // Navigation.registerComponent('screen.Amenities', () => gestureHandlerRootHOC(Amenities));
+    Navigation.registerComponent('screen.Amenities', () => gestureHandlerRootHOC(Amenities));
+
+
 
 }
