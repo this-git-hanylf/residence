@@ -29,6 +29,8 @@ build/
 .gradle
 local.properties
 *.iml
+*.lock
+*.bin
 
 # node.js
 #
@@ -61,3 +63,4 @@ buck-out/
 
 yarn.lock
 package.log.json
+# android/java_pid31639.hprof

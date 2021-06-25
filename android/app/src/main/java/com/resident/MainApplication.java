@@ -1,4 +1,4 @@
-package com.resident;
+package com.ifcaproperty;
 
 import android.app.Application;
 import android.content.Context;

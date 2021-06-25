@@ -68,7 +68,7 @@ class Profile extends Component {
         Navigation.events().bindComponent(this);
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
         const data = {
             email: await sessions.getSess("@User"),
             username: await sessions.getSess("@Name"),

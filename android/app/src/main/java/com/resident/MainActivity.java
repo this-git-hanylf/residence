@@ -1,4 +1,4 @@
-package com.resident;
+package com.ifcaproperty;
 
 import com.reactnativenavigation.NavigationActivity;
 
