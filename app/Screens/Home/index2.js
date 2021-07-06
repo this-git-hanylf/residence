@@ -634,6 +634,7 @@ export default class Home2 extends React.Component {
                             textTransform: 'uppercase'
                         }}>
                             Announcement
+                            http://34.87.121.155:8000/ifcaprop-api/api/announce
                         </Text>
                     </View>
                     <Grid style={{ paddingTop: 10 }}>

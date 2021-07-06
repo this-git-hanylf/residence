@@ -1,22 +1,19 @@
-
-
-import { AppRegistry } from 'react-native';
-import { Navigation } from 'react-native-navigation';
-import { registerScreen } from './app/Screens/screens';
+// import { AppRegistry } from 'react-native';
+import {Navigation} from 'react-native-navigation';
+import {registerScreen} from './app/Screens/screens';
 
 // import App from './App';
 // import { name as appName } from './app.json';
 registerScreen();
 
-
-
 // Navigation.registerComponent('Initializing', () => registerScreen);
+// Navigation.registerComponent('com.ifcaproperty', () => App);
 Navigation.events().registerAppLaunchedListener(() => {
-    Navigation.setRoot({
-        root: {
-            component: {
-                name: 'Initializing'
-            }
-        }
-    })
-})
+  Navigation.setRoot({
+    root: {
+      component: {
+        name: 'Initializing',
+      },
+    },
+  });
+});
