@@ -1,52 +1,50 @@
-import React from 'react'
-import { Text, TouchableOpacity, View, Image, Linking } from 'react-native'
+import React from 'react';
+import {Text, TouchableOpacity, View, Image, Linking} from 'react-native';
 // import ProgressCircle from 'react-native-progress-circle'
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../../Theme/Colors';
 
-
 export default class CourseList extends React.Component {
-    render() {
-        const { img, title, bg, onPress, datepost, call, halo } = this.props
-        return (
-            <TouchableOpacity
-                onPress={onPress}
-                style={{
-                    flexDirection: "row",
-                    backgroundColor: bg,
-                    padding: 20,
-                    marginHorizontal: 20,
-                    borderRadius: 20,
-                    alignItems: "center",
-                    marginTop: 10
-                }}
-            >
-                <Image
-                    source={img}
-                    style={{ width: 40, height: 40 }}
-                />
+  render() {
+    const {img, title, bg, onPress, datepost, call, halo} = this.props;
+    return (
+      <TouchableOpacity
+        onPress={onPress}
+        style={{
+          flexDirection: 'row',
+          backgroundColor: bg,
+          padding: 20,
+          marginHorizontal: 20,
+          borderRadius: 20,
+          alignItems: 'center',
+          marginTop: 10,
+        }}>
+        <Image source={img} style={{width: 40, height: 40}} />
 
-                <View style={{ width: '80%' }}>
-                    <Text style={{
-                        color: colors.bg_abuabu,
-                        fontFamily: "Bold",
-                        fontSize: 16,
-                        paddingHorizontal: 20,
-                        width: 200,
-                        // justifyContent: 'space-around',
-                        // alignContent: 'center',
-                        // alignItems: 'baseline',
-                        textAlign: 'justify'
-                    }}>{title}</Text>
+        <View style={{width: '80%'}}>
+          <Text
+            style={{
+              color: colors.bg_abuabu,
+              //fontFamily: 'Bold',
+              fontSize: 16,
+              paddingHorizontal: 20,
+              width: 200,
+              // justifyContent: 'space-around',
+              // alignContent: 'center',
+              // alignItems: 'baseline',
+              textAlign: 'justify',
+            }}>
+            {title}
+          </Text>
+        </View>
 
-                </View>
+        <TouchableOpacity onPress={call}>
+          <Icon
+            name="call"
+            style={{fontSize: 20, color: 'green', textAlign: 'right'}}></Icon>
+        </TouchableOpacity>
 
-                <TouchableOpacity
-                    onPress={call}>
-                    <Icon name="call" style={{ fontSize: 20, color: 'green', textAlign: 'right' }}></Icon>
-                </TouchableOpacity>
-
-                {/* <Text style={{
+        {/* <Text style={{
                     color: "#345c74",
                     fontFamily: "Medium",
                     fontSize: 13,
@@ -55,7 +53,7 @@ export default class CourseList extends React.Component {
                 }}>
                     25%
                     </Text> */}
-                {/* <ProgressCircle
+        {/* <ProgressCircle
                     percent={30}
                     radius={17}
                     borderWidth={1.5}
@@ -67,8 +65,7 @@ export default class CourseList extends React.Component {
                         source={require('@Asset/images/pl.png')}
                     />
                 </ProgressCircle> */}
-
-            </TouchableOpacity>
-        )
-    }
+      </TouchableOpacity>
+    );
+  }
 }

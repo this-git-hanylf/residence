@@ -397,7 +397,7 @@ export default class Home2 extends React.Component {
                   paddingHorizontal: 15,
                   fontSize: 20,
                   paddingTop: 20,
-                  fontFamily: 'Bold',
+                  //fontFamily: 'Bold',
 
                   color: '#fff',
                 }}>
@@ -408,7 +408,7 @@ export default class Home2 extends React.Component {
                   paddingHorizontal: 15,
                   fontSize: 20,
                   marginBottom: 20,
-                  fontFamily: 'Bold',
+                  //fontFamily: 'Bold',
 
                   color: '#fff',
                 }}>
@@ -421,7 +421,7 @@ export default class Home2 extends React.Component {
                       fontSize: 20,
                       paddingTop: 20,
                       marginBottom: 20,
-                      fontFamily: 'Bold',
+                      //fontFamily: 'Bold',
 
                       color: '#fff',
                     }}>
@@ -444,6 +444,7 @@ export default class Home2 extends React.Component {
             indicatorActiveWidth={30}
             animation
           />
+
           {user != null ? (
             <View
               style={{
@@ -500,7 +501,7 @@ export default class Home2 extends React.Component {
                       style={{
                         color: colors.bg_abuabu,
                         fontSize: 13,
-                        fontFamily: 'Bold',
+                        //fontFamily: 'Bold',
                         fontWeight: 'bold',
                       }}>
                       INVOICE
@@ -510,7 +511,7 @@ export default class Home2 extends React.Component {
                         style={{
                           color: colors.bg_abuabu,
                           fontSize: 15,
-                          fontFamily: 'Bold',
+                          //fontFamily: 'Bold',
                           textAlign: 'left',
                           fontWeight: 'bold',
                         }}>
@@ -520,7 +521,7 @@ export default class Home2 extends React.Component {
                         style={{
                           color: colors.bg_abuabu,
                           fontSize: 15,
-                          fontFamily: 'Bold',
+                          //fontFamily: 'Bold',
                           fontWeight: 'bold',
                           // textAlign: 'right',
                           // flex: 1
@@ -559,7 +560,7 @@ export default class Home2 extends React.Component {
                       style={{
                         color: colors.bg_abuabu,
                         fontSize: 13,
-                        fontFamily: 'Bold',
+                        //fontFamily: 'Bold',
                         fontWeight: 'bold',
                       }}>
                       TOTAL
@@ -568,7 +569,7 @@ export default class Home2 extends React.Component {
                       style={{
                         color: colors.bg_abuabu,
                         fontSize: 15,
-                        fontFamily: 'Bold',
+                        //fontFamily: 'Bold',
                         textAlign: 'left',
                         fontWeight: 'bold',
                       }}>
@@ -582,199 +583,401 @@ export default class Home2 extends React.Component {
             <View style={{marginBottom: 100}}></View>
           )}
 
-          {/* -------- MENU - MENU ----------- */}
-          <Grid>
-            <Col style={{height: 90, paddingLeft: 10, paddingRight: 10}}>
-              <TouchableOpacity
-                // // onPress={() => this.props.navigation.navigate('Cources')}
-                // onPress={() => this.handleNavigation(
-                //     "screen.Cources",
-                //     // this.state.totalInvoiceDue
-                // )}
-                style={{
-                  flexDirection: 'row',
-                  backgroundColor: '#fff',
-                  alignItems: 'center',
-
-                  height: 80,
-                  width: '100%',
-                  paddingVertical: 10,
-
-                  paddingHorizontal: 5,
-                  marginBottom: 15,
-                  borderRadius: 20,
-                  textAlign: 'center',
-
-                  // -- create shadow
-                  shadowColor: '#000',
-                  shadowOffset: {
-                    width: 0,
-                    height: 1,
-                  },
-                  shadowOpacity: 0.22,
-                  shadowRadius: 2.22,
-                  elevation: 3,
-                  // -- end create shadow
-                }}>
-                <View
+          {Platform.OS == 'ios' ? (
+            // {/* -------- MENU - MENU IOS----------- */}
+            <Grid>
+              <Col style={{height: 90, paddingLeft: 10, paddingRight: 10}}>
+                <TouchableOpacity
+                  // // onPress={() => this.props.navigation.navigate('Cources')}
+                  // onPress={() => this.handleNavigation(
+                  //     "screen.Cources",
+                  //     // this.state.totalInvoiceDue
+                  // )}
                   style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 25,
-                    backgroundColor: colors.bg_peachmuda,
+                    flexDirection: 'column',
+                    backgroundColor: '#fff',
                     alignItems: 'center',
-                    alignSelf: 'center',
-                    justifyContent: 'center',
+
+                    height: 100,
+                    width: '100%',
+                    paddingVertical: 10,
+
+                    paddingHorizontal: 5,
+                    marginBottom: 15,
+                    borderRadius: 20,
+                    textAlign: 'center',
+
+                    // -- create shadow
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 0,
+                      height: 1,
+                    },
+                    shadowOpacity: 0.22,
+                    shadowRadius: 2.22,
+                    elevation: 3,
+                    // -- end create shadow
                   }}>
-                  <Image
-                    source={require('@Asset/icons/billing.png')}
-                    style={{width: 30, height: 30}}
-                  />
-                </View>
-                <View style={{flexGrow: 1, flexDirection: 'row'}}>
-                  <Text
+                  <View
                     style={{
-                      color: colors.bg_abuabu,
-                      fontSize: 16,
-                      fontFamily: 'Bold',
-                      paddingLeft: 5,
+                      width: 40,
+                      height: 40,
+                      borderRadius: 25,
+                      backgroundColor: colors.bg_peachmuda,
+                      alignItems: 'center',
+                      alignSelf: 'center',
+                      justifyContent: 'center',
                     }}>
-                    Billing
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </Col>
-            <Col style={{height: 90, paddingLeft: 10, paddingRight: 10}}>
-              <TouchableOpacity
-                // onPress={() => this.props.navigation.navigate('Cources')}
-                // onPress={() => this.handleNavigation(
-                //     "screen.Cources",
-                //     // this.state.totalInvoiceDue
-                // )}
+                    <Image
+                      source={require('@Asset/icons/billing.png')}
+                      style={{width: 30, height: 30}}
+                    />
+                  </View>
+                  <View style={{flexGrow: 1, flexDirection: 'row'}}>
+                    <Text
+                      style={{
+                        color: colors.bg_abuabu,
+                        fontSize: 16,
+                        //fontFamily: 'Bold',
+                        paddingLeft: 5,
+                      }}>
+                      Billing
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col
                 style={{
-                  flexDirection: 'row',
-                  backgroundColor: '#fff',
-                  alignItems: 'center',
-
-                  height: 80,
-                  width: '100%',
-                  paddingVertical: 10,
-                  borderRadius: 20,
-                  paddingHorizontal: 5,
-                  marginBottom: 10,
-
-                  // -- create shadow
-                  shadowColor: '#000',
-                  shadowOffset: {
-                    width: 0,
-                    height: 1,
-                  },
-                  shadowOpacity: 0.22,
-                  shadowRadius: 2.22,
-                  elevation: 3,
-                  // -- end create shadow
+                  height: 90,
+                  paddingLeft: 10,
+                  paddingRight: 10,
+                  // paddingBottom: 10,
                 }}>
-                <View
+                <TouchableOpacity
+                  // onPress={() => this.props.navigation.navigate('Cources')}
+                  // onPress={() => this.handleNavigation(
+                  //     "screen.Cources",
+                  //     // this.state.totalInvoiceDue
+                  // )}
                   style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 25,
-                    backgroundColor: colors.bg_peachmuda,
+                    flexDirection: 'column',
+                    backgroundColor: '#fff',
                     alignItems: 'center',
-                    alignSelf: 'center',
-                    justifyContent: 'center',
+
+                    height: 100,
+                    width: '100%',
+                    paddingVertical: 10,
+                    borderRadius: 20,
+                    paddingHorizontal: 5,
+                    marginBottom: 10,
+
+                    // -- create shadow
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 0,
+                      height: 1,
+                    },
+                    shadowOpacity: 0.22,
+                    shadowRadius: 2.22,
+                    elevation: 3,
+                    // -- end create shadow
                   }}>
-                  <Image
-                    source={require('@Asset/icons/customerservice.png')}
-                    style={{width: 30, height: 30}}
-                  />
-                </View>
-                <View
+                  <View
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 25,
+                      backgroundColor: colors.bg_peachmuda,
+                      alignItems: 'center',
+                      alignSelf: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Image
+                      source={require('@Asset/icons/customerservice.png')}
+                      style={{width: 30, height: 30}}
+                    />
+                  </View>
+                  <View
+                    style={{
+                      flexGrow: 1,
+                      flexDirection: 'row',
+                      flex: 1,
+                      flexWrap: 'wrap',
+                    }}>
+                    <Text
+                      style={{
+                        color: colors.bg_abuabu,
+                        fontSize: 15,
+                        //fontFamily: 'Bold',
+                        paddingLeft: 5,
+                        textAlign: 'center',
+                        // marginBottom: 10,
+                      }}>
+                      Customer Services
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col style={{height: 90, paddingLeft: 10, paddingRight: 10}}>
+                <TouchableOpacity
+                  // onPress={() =>
+                  //     Navigation.navigate('Amenities')
+                  // }
+                  onPress={() =>
+                    user != null
+                      ? this.handleNavigation(
+                          'screen.Amenities',
+                          this.state.totalInvoiceDue,
+                        )
+                      : alert('please login')
+                  }
                   style={{
-                    flexGrow: 1,
+                    flexDirection: 'column',
+                    backgroundColor: '#fff',
+                    alignItems: 'center',
+
+                    height: 100,
+                    width: '100%',
+                    paddingVertical: 10,
+                    borderRadius: 20,
+                    paddingHorizontal: 5,
+                    marginBottom: 10,
+
+                    // -- create shadow
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 0,
+                      height: 1,
+                    },
+                    shadowOpacity: 0.22,
+                    shadowRadius: 2.22,
+                    elevation: 3,
+                    // -- end create shadow
+                  }}>
+                  <View
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 25,
+                      backgroundColor: colors.bg_peachmuda,
+                      alignItems: 'center',
+                      alignSelf: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Image
+                      source={require('@Asset/icons/amenities2.png')}
+                      style={{width: 30, height: 30}}
+                    />
+                  </View>
+                  <View style={{flexGrow: 1, flexDirection: 'row'}}>
+                    <Text
+                      style={{
+                        color: colors.bg_abuabu,
+                        fontSize: 15,
+                        //fontFamily: 'Bold',
+                        paddingLeft: 5,
+                      }}>
+                      Amenities
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </Col>
+            </Grid>
+          ) : (
+            // {/* -------- END MENU - MENU IOS----------- */}
+            // {/* -------- MENU - MENU ANDRO----------- */}
+            <Grid>
+              <Col style={{height: 90, paddingLeft: 10, paddingRight: 10}}>
+                <TouchableOpacity
+                  // // onPress={() => this.props.navigation.navigate('Cources')}
+                  // onPress={() => this.handleNavigation(
+                  //     "screen.Cources",
+                  //     // this.state.totalInvoiceDue
+                  // )}
+                  style={{
                     flexDirection: 'row',
-                    flex: 1,
-                    flexWrap: 'wrap',
-                  }}>
-                  <Text
-                    style={{
-                      color: colors.bg_abuabu,
-                      fontSize: 15,
-                      fontFamily: 'Bold',
-                      paddingLeft: 5,
-                    }}>
-                    Customer Services
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </Col>
-            <Col style={{height: 90, paddingLeft: 10, paddingRight: 10}}>
-              <TouchableOpacity
-                // onPress={() =>
-                //     Navigation.navigate('Amenities')
-                // }
-                onPress={() =>
-                  user != null
-                    ? this.handleNavigation(
-                        'screen.Amenities',
-                        this.state.totalInvoiceDue,
-                      )
-                    : alert('please login')
-                }
-                style={{
-                  flexDirection: 'row',
-                  backgroundColor: '#fff',
-                  alignItems: 'center',
-
-                  height: 80,
-                  width: '100%',
-                  paddingVertical: 10,
-                  borderRadius: 20,
-                  paddingHorizontal: 5,
-                  marginBottom: 10,
-
-                  // -- create shadow
-                  shadowColor: '#000',
-                  shadowOffset: {
-                    width: 0,
-                    height: 1,
-                  },
-                  shadowOpacity: 0.22,
-                  shadowRadius: 2.22,
-                  elevation: 3,
-                  // -- end create shadow
-                }}>
-                <View
-                  style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 25,
-                    backgroundColor: colors.bg_peachmuda,
+                    backgroundColor: '#fff',
                     alignItems: 'center',
-                    alignSelf: 'center',
-                    justifyContent: 'center',
-                  }}>
-                  <Image
-                    source={require('@Asset/icons/amenities2.png')}
-                    style={{width: 30, height: 30}}
-                  />
-                </View>
-                <View style={{flexGrow: 1, flexDirection: 'row'}}>
-                  <Text
-                    style={{
-                      color: colors.bg_abuabu,
-                      fontSize: 15,
-                      fontFamily: 'Bold',
-                      paddingLeft: 5,
-                    }}>
-                    Amenities
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </Col>
-          </Grid>
 
-          {/* -------- END MENU - MENU ----------- */}
+                    height: 80,
+                    width: '100%',
+                    paddingVertical: 10,
+
+                    paddingHorizontal: 5,
+                    marginBottom: 15,
+                    borderRadius: 20,
+                    textAlign: 'center',
+
+                    // -- create shadow
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 0,
+                      height: 1,
+                    },
+                    shadowOpacity: 0.22,
+                    shadowRadius: 2.22,
+                    elevation: 3,
+                    // -- end create shadow
+                  }}>
+                  <View
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 25,
+                      backgroundColor: colors.bg_peachmuda,
+                      alignItems: 'center',
+                      alignSelf: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Image
+                      source={require('@Asset/icons/billing.png')}
+                      style={{width: 30, height: 30}}
+                    />
+                  </View>
+                  <View style={{flexGrow: 1, flexDirection: 'row'}}>
+                    <Text
+                      style={{
+                        color: colors.bg_abuabu,
+                        fontSize: 16,
+                        //fontFamily: 'Bold',
+                        paddingLeft: 5,
+                      }}>
+                      Billing
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col style={{height: 90, paddingLeft: 10, paddingRight: 10}}>
+                <TouchableOpacity
+                  // onPress={() => this.props.navigation.navigate('Cources')}
+                  // onPress={() => this.handleNavigation(
+                  //     "screen.Cources",
+                  //     // this.state.totalInvoiceDue
+                  // )}
+                  style={{
+                    flexDirection: 'row',
+                    backgroundColor: '#fff',
+                    alignItems: 'center',
+
+                    height: 80,
+                    width: '100%',
+                    paddingVertical: 10,
+                    borderRadius: 20,
+                    paddingHorizontal: 5,
+                    marginBottom: 10,
+
+                    // -- create shadow
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 0,
+                      height: 1,
+                    },
+                    shadowOpacity: 0.22,
+                    shadowRadius: 2.22,
+                    elevation: 3,
+                    // -- end create shadow
+                  }}>
+                  <View
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 25,
+                      backgroundColor: colors.bg_peachmuda,
+                      alignItems: 'center',
+                      alignSelf: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Image
+                      source={require('@Asset/icons/customerservice.png')}
+                      style={{width: 30, height: 30}}
+                    />
+                  </View>
+                  <View
+                    style={{
+                      flexGrow: 1,
+                      flexDirection: 'row',
+                      flex: 1,
+                      flexWrap: 'wrap',
+                    }}>
+                    <Text
+                      style={{
+                        color: colors.bg_abuabu,
+                        fontSize: 15,
+                        //fontFamily: 'Bold',
+                        paddingLeft: 5,
+                      }}>
+                      Customer Services
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </Col>
+              <Col style={{height: 90, paddingLeft: 10, paddingRight: 10}}>
+                <TouchableOpacity
+                  // onPress={() =>
+                  //     Navigation.navigate('Amenities')
+                  // }
+                  onPress={() =>
+                    user != null
+                      ? this.handleNavigation(
+                          'screen.Amenities',
+                          this.state.totalInvoiceDue,
+                        )
+                      : alert('please login')
+                  }
+                  style={{
+                    flexDirection: 'row',
+                    backgroundColor: '#fff',
+                    alignItems: 'center',
+
+                    height: 80,
+                    width: '100%',
+                    paddingVertical: 10,
+                    borderRadius: 20,
+                    paddingHorizontal: 5,
+                    marginBottom: 10,
+
+                    // -- create shadow
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 0,
+                      height: 1,
+                    },
+                    shadowOpacity: 0.22,
+                    shadowRadius: 2.22,
+                    elevation: 3,
+                    // -- end create shadow
+                  }}>
+                  <View
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 25,
+                      backgroundColor: colors.bg_peachmuda,
+                      alignItems: 'center',
+                      alignSelf: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Image
+                      source={require('@Asset/icons/amenities2.png')}
+                      style={{width: 30, height: 30}}
+                    />
+                  </View>
+                  <View style={{flexGrow: 1, flexDirection: 'row'}}>
+                    <Text
+                      style={{
+                        color: colors.bg_abuabu,
+                        fontSize: 15,
+                        //fontFamily: 'Bold',
+                        paddingLeft: 5,
+                      }}>
+                      Amenities
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </Col>
+            </Grid>
+            // {/* -------- END MENU - MENU ANDRO----------- */}
+          )}
 
           {/* --------- ANNOUNCEMENT ------- */}
           <View style={{paddingLeft: 10, paddingTop: 15}}>
@@ -782,7 +985,7 @@ export default class Home2 extends React.Component {
               style={{
                 color: colors.bg_abuabu,
                 fontSize: 16,
-                fontFamily: 'Bold',
+                //fontFamily: 'Bold',
                 textAlign: 'left',
                 width: '100%',
                 fontWeight: 'bold',
@@ -832,7 +1035,7 @@ export default class Home2 extends React.Component {
                           style={{
                             color: colors.bg_abuabu,
                             fontSize: 16,
-                            fontFamily: 'Bold',
+                            //fontFamily: 'Bold',
                             textAlign: 'center',
                             width: '100%',
                             fontWeight: 'bold',
@@ -845,7 +1048,7 @@ export default class Home2 extends React.Component {
                           style={{
                             color: colors.bg_abuabu,
                             fontSize: 14,
-                            fontFamily: 'Bold',
+                            //fontFamily: 'Bold',
                             textAlign: 'center',
                             width: '100%',
                           }}>
@@ -860,7 +1063,7 @@ export default class Home2 extends React.Component {
                           style={{
                             color: colors.bg_abuabu,
                             fontSize: 16,
-                            fontFamily: 'Bold',
+                            //fontFamily: 'Bold',
                             textAlign: 'center',
                             width: '100%',
                             fontWeight: 'bold',
@@ -873,7 +1076,7 @@ export default class Home2 extends React.Component {
                           style={{
                             color: colors.bg_abuabu,
                             fontSize: 14,
-                            fontFamily: 'Bold',
+                            //fontFamily: 'Bold',
                             textAlign: 'center',
                             width: '100%',
                           }}>
@@ -896,7 +1099,7 @@ export default class Home2 extends React.Component {
               style={{
                 color: colors.bg_abuabu,
                 fontSize: 16,
-                fontFamily: 'Bold',
+                //fontFamily: 'Bold',
                 textAlign: 'left',
                 width: '100%',
                 fontWeight: 'bold',
@@ -960,7 +1163,7 @@ export default class Home2 extends React.Component {
               style={{
                 color: colors.bg_abuabu,
                 fontSize: 16,
-                fontFamily: 'Bold',
+                //fontFamily: 'Bold',
                 textAlign: 'left',
                 width: '100%',
                 fontWeight: 'bold',

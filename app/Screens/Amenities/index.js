@@ -202,7 +202,7 @@ export default class Amenities extends React.Component {
           <Text
             style={{
               fontSize: 25,
-              fontFamily: 'Montserrat-SemiBold',
+              //fontFamily: 'Montserrat-SemiBold',
               color: '#333',
             }}>
             ini title
@@ -212,7 +212,7 @@ export default class Amenities extends React.Component {
           <Text
             style={{
               fontSize: 12,
-              fontFamily: 'Montserrat-SemiBold',
+              //fontFamily: 'Montserrat-SemiBold',
               color: '#4E4E4E',
             }}>
             ini subtitle
